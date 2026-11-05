@@ -1,0 +1,3213 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#3182f6"><meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="description" content="노리케어 코치를 위한 온보딩, 성장 로드맵, 실무 지침 및 프리랜서 업무위탁 운영규정">
+<title>노리케어 코치 포털 | Careflow</title>
+<style>:root {
+  --toss-blue: #3182f6;
+  --toss-blue-hover: #1b64da;
+  --toss-blue-active: #1557be;
+  --toss-blue-light: #e8f3ff;
+  --toss-blue-subtle: #f4f8fe;
+  --toss-bg: #f2f4f6;
+  --toss-card-bg: #ffffff;
+  --toss-card-border: #eef0f3;
+  --toss-text-main: #191f28;
+  --toss-text-sub: #4e5968;
+  --toss-text-muted: #8b95a1;
+  --toss-line: #e5e8eb;
+  --toss-green: #00b269;
+  --toss-green-light: #e8f8f0;
+  --toss-red: #f04452;
+  --toss-red-light: #feecee;
+  --toss-orange: #ff8a00;
+  --toss-orange-light: #fff6e5;
+  --toss-purple: #6c5ce7;
+  --toss-purple-light: #f1efff;
+
+  /* Legacy variables compatibility */
+  --navy: #191f28;
+  --navy-2: #3182f6;
+  --blue: #3182f6;
+  --blue-hover: #1b64da;
+  --azure: #e8f3ff;
+  --ink: #191f28;
+  --muted: #8b95a1;
+  --line: #e5e8eb;
+  --paper: #f2f4f6;
+  --white: #ffffff;
+  --soft: #f9fafb;
+  --success: #00b269;
+  --danger: #f04452;
+  --focus: #3182f6;
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --radius-xl: 28px;
+  --radius: 20px;
+  --base-font: 16px;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+  --shadow-hover: 0 12px 32px rgba(49, 130, 246, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
+  --shadow-float: 0 16px 36px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.06);
+  --top-h: 68px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+  background-color: var(--toss-bg);
+}
+
+body {
+  margin: 0;
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  font-size: var(--base-font);
+  line-height: 1.7;
+  color: var(--toss-text-main);
+  background: var(--toss-bg);
+  -webkit-font-smoothing: antialiased;
+  word-break: keep-all;
+}
+
+button, input {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+button:active:not(:disabled) {
+  transform: scale(0.97);
+}
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button:focus-visible, a:focus-visible, input:focus-visible, summary:focus-visible {
+  outline: 3px solid var(--toss-blue);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+::selection {
+  background: #d4e8fc;
+  color: #1557be;
+}
+
+h1, h2, h3, h4, p {
+  margin-top: 0;
+}
+h1, h2, h3, h4 {
+  color: var(--toss-text-main);
+  letter-spacing: -0.035em;
+  font-weight: 750;
+}
+p {
+  margin-bottom: 0.9em;
+  color: var(--toss-text-sub);
+}
+
+.skip-link {
+  position: absolute;
+  z-index: 999;
+  top: -80px;
+  left: 20px;
+  padding: 10px 18px;
+  border-radius: 12px;
+  background: var(--toss-blue);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: var(--shadow-float);
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 15px;
+}
+
+/* Reading Progress Bar */
+.reading-line {
+  position: fixed;
+  z-index: 105;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 3px;
+  background: transparent;
+  pointer-events: none;
+}
+.reading-line::before {
+  content: '';
+  display: block;
+  width: var(--reading-progress, 0%);
+  height: 100%;
+  background: linear-gradient(90deg, #3182f6, #00b269);
+  transition: width 0.15s ease-out;
+  border-radius: 0 2px 2px 0;
+}
+
+/* Topbar */
+.topbar {
+  height: var(--top-h);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 max(28px, calc((100vw - 1460px) / 2));
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.topbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.brand-mark {
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, #3182f6 0%, #1b64da 100%);
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(49, 130, 246, 0.28);
+}
+.brand-mark svg {
+  width: 24px;
+  height: 24px;
+}
+.brand-name {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+.brand-name b {
+  font-size: 15px;
+  font-weight: 850;
+  letter-spacing: -0.02em;
+  color: var(--toss-text-main);
+}
+.brand-name span {
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  color: var(--toss-blue);
+  font-weight: 800;
+  margin-top: 3px;
+}
+.topbar-caption {
+  margin-left: 20px;
+  padding-left: 20px;
+  border-left: 1px solid var(--toss-line);
+  color: var(--toss-text-muted);
+  font-size: 13px;
+  font-weight: 600;
+}
+.topbar-spacer {
+  flex: 1;
+}
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.icon-button {
+  height: 42px;
+  min-width: 42px;
+  border: 1px solid transparent;
+  background: var(--toss-bg);
+  border-radius: 12px;
+  color: var(--toss-text-sub);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 14px;
+  font-weight: 700;
+  font-size: 13.5px;
+}
+.icon-button:hover {
+  background: #e8ecf2;
+  color: var(--toss-text-main);
+}
+.icon-button svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+}
+.key-hint {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--toss-text-muted);
+  background: #fff;
+  padding: 2px 6px;
+  border-radius: 6px;
+  border: 1px solid #e0e4e8;
+}
+.action-label {
+  font-size: 13.5px;
+}
+.header-menu {
+  display: none;
+}
+
+/* Workspace */
+.workspace {
+  max-width: 1460px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr) 260px;
+  gap: 20px;
+  align-items: stretch;
+  min-height: calc(100vh - var(--top-h));
+  background: var(--toss-bg);
+  padding: 24px 20px;
+}
+
+/* Sidebar */
+.sidebar {
+  position: sticky;
+  top: calc(var(--top-h) + 24px);
+  align-self: start;
+  max-height: calc(100vh - var(--top-h) - 48px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #d1d6dc transparent;
+  padding: 20px 14px;
+  background: var(--toss-card-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--toss-card-border);
+}
+.sidebar-title {
+  font-size: 11px;
+  color: var(--toss-text-muted);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin: 4px 8px 12px;
+}
+.document-switch {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.switch-btn {
+  border: 1.5px solid transparent;
+  text-align: left;
+  background: var(--toss-bg);
+  border-radius: 14px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  color: var(--toss-text-sub);
+}
+.switch-btn:hover {
+  background: #e9edf3;
+  color: var(--toss-text-main);
+}
+.switch-btn.is-active {
+  border-color: #bad6ff;
+  background: var(--toss-blue-light);
+  color: var(--toss-blue);
+  box-shadow: 0 2px 10px rgba(49, 130, 246, 0.08);
+}
+.switch-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  color: var(--toss-text-sub);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+.switch-btn.is-active .switch-icon {
+  background: var(--toss-blue);
+  color: #fff;
+}
+.switch-icon svg {
+  height: 18px;
+  width: 18px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+}
+.switch-btn strong {
+  display: block;
+  font-size: 14px;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  font-weight: 750;
+}
+.switch-btn small {
+  font-size: 11.5px;
+  color: var(--toss-text-muted);
+  display: block;
+  margin-top: 3px;
+}
+.switch-btn.is-active small {
+  color: #4b82d4;
+}
+
+.toc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  margin: 20px 8px 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--toss-line);
+}
+.toc-header strong {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--toss-text-main);
+}
+.toc-items {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.toc-link {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--toss-text-sub);
+  transition: all 0.15s;
+}
+.toc-link:hover {
+  color: var(--toss-blue);
+  background: var(--toss-blue-light);
+}
+.toc-link.is-current {
+  font-weight: 800;
+  color: var(--toss-blue);
+  background: var(--toss-blue-light);
+}
+.toc-num {
+  flex: 0 0 22px;
+  font-size: 11px;
+  font-weight: 750;
+  color: var(--toss-text-muted);
+  font-variant-numeric: tabular-nums;
+}
+.toc-link.is-current .toc-num {
+  color: var(--toss-blue);
+}
+.toc-group {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--toss-text-muted);
+  margin: 16px 8px 6px;
+}
+.sidebar-note {
+  margin: 24px 6px 0;
+  padding: 14px 12px;
+  background: var(--toss-bg);
+  border-radius: 12px;
+  color: var(--toss-text-sub);
+  font-size: 11.5px;
+  line-height: 1.65;
+}
+
+/* Reader & Hero */
+.reader {
+  min-width: 0;
+}
+.doc-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.doc-panel[hidden] {
+  display: none !important;
+}
+
+/* Toss Style Hero Card */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 48px clamp(28px, 5vw, 56px);
+  background: linear-gradient(135deg, #ffffff 0%, #f4f8fe 100%);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--toss-card-border);
+  box-shadow: var(--shadow);
+}
+.hero.rules-hero {
+  background: linear-gradient(135deg, #ffffff 0%, #f7f9fa 100%);
+}
+.hero-overline {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  font-weight: 850;
+  color: var(--toss-blue);
+  background: var(--toss-blue-light);
+  padding: 4px 10px;
+  border-radius: 8px;
+  margin: 0 0 16px;
+}
+.hero h1 {
+  font-size: clamp(30px, 4vw, 42px);
+  font-weight: 850;
+  line-height: 1.3;
+  color: var(--toss-text-main);
+  letter-spacing: -0.05em;
+  margin: 0 0 16px;
+}
+.hero-desc {
+  color: var(--toss-text-sub);
+  font-size: 16px;
+  line-height: 1.75;
+  max-width: 620px;
+  margin-bottom: 26px;
+}
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.button-primary {
+  background: var(--toss-blue);
+  color: #fff;
+  border: 1px solid var(--toss-blue);
+  border-radius: 14px;
+  padding: 13px 22px;
+  font-weight: 750;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(49, 130, 246, 0.32);
+}
+.button-primary:hover {
+  background: var(--toss-blue-hover);
+  border-color: var(--toss-blue-hover);
+  box-shadow: 0 6px 18px rgba(49, 130, 246, 0.4);
+}
+.button-secondary {
+  background: #ffffff;
+  border: 1.5px solid var(--toss-line);
+  color: var(--toss-text-main);
+  border-radius: 14px;
+  padding: 13px 20px;
+  font-weight: 750;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.button-secondary:hover {
+  background: #f7f9fb;
+  border-color: #d0d6dc;
+}
+.button-primary svg, .button-secondary svg {
+  height: 16px;
+  width: 16px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2.2;
+}
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 28px;
+  color: var(--toss-text-muted);
+  font-weight: 650;
+  font-size: 12px;
+  flex-wrap: wrap;
+}
+.hero-meta .mini-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 99px;
+  background: #c5ced7;
+}
+.draft-flag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff6e5;
+  border: 1px solid #ffe3b3;
+  color: #b86200;
+  border-radius: 8px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+
+/* Content Container Cards */
+.content-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Individual Card Container */
+.content-section {
+  scroll-margin-top: 90px;
+  background: var(--toss-card-bg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--toss-card-border);
+  box-shadow: var(--shadow);
+  padding: 36px clamp(24px, 4vw, 44px);
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+.content-section:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.chapter-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--toss-line);
+}
+.chapter-no {
+  flex-shrink: 0;
+  font-size: 13px;
+  font-weight: 850;
+  color: var(--toss-blue);
+  background: var(--toss-blue-light);
+  border-radius: 10px;
+  padding: 6px 12px;
+  letter-spacing: 0.02em;
+}
+.chapter-head h2 {
+  font-size: 24px;
+  font-weight: 850;
+  line-height: 1.35;
+  color: var(--toss-text-main);
+  margin: 0;
+}
+
+/* Rich Text Styling */
+.rich-text {
+  font-size: 15.5px;
+  line-height: 1.85;
+  color: var(--toss-text-sub);
+  overflow-wrap: anywhere;
+}
+.rich-text p {
+  margin: 0 0 16px;
+}
+.rich-text h3 {
+  font-size: 18px;
+  font-weight: 800;
+  margin: 28px 0 14px;
+  color: var(--toss-text-main);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.rich-text h4 {
+  font-size: 16px;
+  font-weight: 800;
+  margin: 20px 0 10px;
+  color: var(--toss-text-main);
+}
+.rich-text ul, .rich-text ol {
+  padding-left: 24px;
+  margin: 12px 0 20px;
+}
+.rich-text li {
+  padding-left: 4px;
+  margin: 8px 0;
+}
+.rich-text strong {
+  font-weight: 750;
+  color: var(--toss-text-main);
+}
+.rich-text a {
+  color: var(--toss-blue);
+  font-weight: 700;
+}
+.rich-text blockquote {
+  margin: 20px 0;
+  padding: 16px 20px;
+  background: var(--toss-blue-subtle);
+  border-left: 4px solid var(--toss-blue);
+  color: var(--toss-text-sub);
+  border-radius: 0 14px 14px 0;
+  font-size: 14.5px;
+  line-height: 1.75;
+}
+.rich-text blockquote p:last-child {
+  margin-bottom: 0;
+}
+.rich-text table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  font-size: 13.5px;
+  line-height: 1.6;
+  margin: 20px 0 24px;
+  border-radius: 14px;
+  overflow-x: auto;
+  display: block;
+  border: 1px solid var(--toss-line);
+}
+.rich-text table th {
+  background: #f7f9fa;
+  color: var(--toss-text-main);
+  font-size: 13px;
+  text-align: left;
+  font-weight: 800;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--toss-line);
+}
+.rich-text table td {
+  border-bottom: 1px solid #edf0f3;
+  padding: 12px 14px;
+  vertical-align: top;
+  color: var(--toss-text-sub);
+}
+.rich-text table tr:last-child td {
+  border-bottom: 0;
+}
+.rich-text hr {
+  border: 0;
+  border-top: 1px solid var(--toss-line);
+  margin: 32px 0;
+}
+
+/* ==========================================================================
+   TOSS DIAGRAMS & INFOGRAPHICS (도식화 컴포넌트)
+   ========================================================================== */
+
+/* Lead Note */
+.lead-note {
+  border: 1.5px solid #d8e8fc;
+  background: var(--toss-blue-subtle);
+  color: var(--toss-text-sub);
+  padding: 18px 22px;
+  font-size: 14px;
+  line-height: 1.75;
+  margin: 0;
+  border-radius: 16px;
+}
+.lead-note strong {
+  color: var(--toss-blue-dark);
+  font-weight: 800;
+}
+
+/* Ecosystem Diagram (리브라이블리 노리케어 생태계 도식) */
+.toss-diagram-wrap {
+  margin: 24px 0;
+  padding: 24px;
+  background: linear-gradient(145deg, #f7f9fc 0%, #edf3fb 100%);
+  border-radius: 18px;
+  border: 1px solid #e1eaf5;
+}
+.diagram-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--toss-blue);
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ecosystem-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.ecosystem-node {
+  background: #fff;
+  border-radius: 16px;
+  padding: 18px 14px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  border: 1.5px solid transparent;
+  transition: all 0.25s;
+  position: relative;
+}
+.ecosystem-node:hover {
+  transform: translateY(-4px);
+  border-color: #bad6ff;
+  box-shadow: 0 8px 20px rgba(49, 130, 246, 0.12);
+}
+.node-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: var(--toss-blue-light);
+  color: var(--toss-blue);
+  display: grid;
+  place-items: center;
+  margin: 0 auto 10px;
+  font-size: 22px;
+}
+.node-title {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--toss-text-main);
+  margin-bottom: 4px;
+}
+.node-desc {
+  font-size: 11.5px;
+  color: var(--toss-text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* 4 Principles Grid (4대 원칙 카드) */
+.principle-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin: 20px 0;
+}
+.principle-card {
+  background: #fff;
+  border: 1.5px solid var(--toss-line);
+  border-radius: 18px;
+  padding: 20px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.principle-card:hover {
+  transform: translateY(-3px);
+  border-color: #bad6ff;
+  box-shadow: 0 8px 24px rgba(49, 130, 246, 0.09);
+}
+.principle-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: var(--toss-blue-light);
+  color: var(--toss-blue);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  font-size: 20px;
+}
+.principle-content h4 {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--toss-text-main);
+  margin: 0 0 4px;
+}
+.principle-content p {
+  font-size: 13px;
+  color: var(--toss-text-sub);
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* Do / Don't Boundary Cards (역할 경계 비교) */
+.boundary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 20px 0;
+}
+.boundary-card {
+  border-radius: 18px;
+  padding: 22px;
+}
+.boundary-card.do {
+  background: var(--toss-green-light);
+  border: 1.5px solid #bcead0;
+}
+.boundary-card.dont {
+  background: var(--toss-red-light);
+  border: 1.5px solid #fed2d6;
+}
+.boundary-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 850;
+  padding: 4px 10px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+.boundary-card.do .boundary-tag {
+  background: #00b269;
+  color: #fff;
+}
+.boundary-card.dont .boundary-tag {
+  background: #f04452;
+  color: #fff;
+}
+.boundary-card h4 {
+  font-size: 16px;
+  margin: 0 0 10px;
+}
+.boundary-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.boundary-list li {
+  font-size: 13.5px;
+  line-height: 1.55;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 0;
+}
+
+/* Career Roadmap Stepper (3단계 커리어 로드맵) */
+.career-path {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  position: relative;
+  gap: 14px;
+  margin: 24px 0;
+}
+.career-step {
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  border: 1.5px solid var(--toss-line);
+  border-radius: 18px;
+  padding: 22px 20px;
+  min-height: 180px;
+  transition: all 0.25s;
+  display: flex;
+  flex-direction: column;
+}
+.career-step:hover {
+  transform: translateY(-4px);
+  border-color: #bad6ff;
+  box-shadow: 0 10px 28px rgba(49, 130, 246, 0.1);
+}
+.career-step:first-child {
+  border-color: #bad6ff;
+  background: linear-gradient(180deg, #ffffff 0%, #f4f8fe 100%);
+}
+.career-step small {
+  font-weight: 850;
+  font-size: 11px;
+  color: var(--toss-blue);
+  letter-spacing: 0.08em;
+  background: var(--toss-blue-light);
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  width: fit-content;
+}
+.career-step h3 {
+  font-size: 17px;
+  line-height: 1.35;
+  color: var(--toss-text-main);
+  margin: 0 0 8px;
+  font-weight: 800;
+}
+.career-step p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--toss-text-sub);
+  margin: 0 0 12px;
+  flex: 1;
+}
+.career-step-badge {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--toss-text-muted);
+  background: #f0f3f6;
+  padding: 4px 8px;
+  border-radius: 6px;
+  width: fit-content;
+}
+
+/* 7-Step Stepper (매칭부터 첫 수업까지 7단계 플로우) */
+.stepper-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 24px 0;
+  position: relative;
+}
+.step-item {
+  display: flex;
+  gap: 18px;
+  background: #fff;
+  border: 1.5px solid var(--toss-line);
+  border-radius: 18px;
+  padding: 18px 22px;
+  transition: all 0.2s;
+  align-items: center;
+}
+.step-item:hover {
+  transform: translateX(4px);
+  border-color: #bad6ff;
+  box-shadow: 0 4px 16px rgba(49, 130, 246, 0.08);
+}
+.step-badge {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--toss-blue);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-weight: 850;
+  font-size: 15px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(49, 130, 246, 0.3);
+}
+.step-body {
+  flex: 1;
+}
+.step-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--toss-text-main);
+  margin-bottom: 3px;
+}
+.step-desc {
+  font-size: 13px;
+  color: var(--toss-text-sub);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Phone Call Simulator UI (통화 말풍선 시뮬레이션) */
+.phone-simulator {
+  background: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 24px;
+  margin: 22px 0;
+}
+.phone-screen-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #edf2f7;
+  margin-bottom: 18px;
+}
+.phone-caller-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.phone-caller-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--toss-blue-light);
+  color: var(--toss-blue);
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+}
+.phone-caller-text b {
+  display: block;
+  font-size: 13.5px;
+  color: var(--toss-text-main);
+}
+.phone-caller-text span {
+  font-size: 11px;
+  color: var(--toss-green);
+  font-weight: 750;
+}
+.chat-bubbles {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.chat-bubble {
+  max-width: 85%;
+  padding: 12px 16px;
+  border-radius: 16px;
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+.chat-bubble.coach {
+  align-self: flex-end;
+  background: var(--toss-blue);
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+.chat-bubble.elder {
+  align-self: flex-start;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  color: var(--toss-text-main);
+  border-bottom-left-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+/* Careflow Mobile Log Mockup (일지 작성 화면 목업) */
+.log-mockup {
+  background: #fff;
+  border: 1.5px solid #dbe3ed;
+  border-radius: 20px;
+  padding: 24px;
+  margin: 22px 0;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+}
+.mockup-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--toss-line);
+}
+.mockup-badge {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--toss-blue);
+  background: var(--toss-blue-light);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+.mockup-field {
+  margin-bottom: 14px;
+}
+.mockup-label {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--toss-text-muted);
+  margin-bottom: 5px;
+  display: block;
+}
+.mockup-box {
+  background: #f7f9fb;
+  border: 1px solid #e1e7ee;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 13.5px;
+  color: var(--toss-text-main);
+  line-height: 1.6;
+}
+
+/* Emergency Action Matrix (비상 대응 3색 카드) */
+.emergency-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 22px 0;
+}
+.emergency-card {
+  border-radius: 18px;
+  padding: 20px;
+  transition: transform 0.2s;
+}
+.emergency-card:hover {
+  transform: translateY(-3px);
+}
+.emergency-card.red {
+  background: var(--toss-red-light);
+  border: 1.5px solid #fed3d6;
+}
+.emergency-card.orange {
+  background: var(--toss-orange-light);
+  border: 1.5px solid #ffe3b3;
+}
+.emergency-card.blue {
+  background: var(--toss-blue-light);
+  border: 1.5px solid #bad6ff;
+}
+.emergency-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.emergency-icon {
+  font-size: 20px;
+}
+.emergency-level {
+  font-size: 13px;
+  font-weight: 850;
+}
+.emergency-card.red .emergency-level { color: var(--toss-red); }
+.emergency-card.orange .emergency-level { color: #b86200; }
+.emergency-card.blue .emergency-level { color: var(--toss-blue-dark); }
+.emergency-card h4 {
+  font-size: 15px;
+  margin: 0 0 8px;
+}
+.emergency-card p {
+  font-size: 12.5px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Checklist & Completion Card (온보딩 자기점검 및 축하) */
+.guide-checks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 22px 0;
+}
+.guide-check {
+  border: 1.5px solid var(--toss-line);
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  cursor: pointer;
+  font-size: 14.5px;
+  color: var(--toss-text-main);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  font-weight: 600;
+}
+.guide-check:hover {
+  border-color: #bad6ff;
+  background: var(--toss-blue-subtle);
+  transform: translateX(3px);
+}
+.guide-check:has(input:checked) {
+  border-color: #00b269;
+  background: var(--toss-green-light);
+  color: #007844;
+}
+.guide-check input {
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #b0b8c1;
+  background: white;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 1px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.guide-check input:checked {
+  background: var(--toss-green);
+  border-color: var(--toss-green);
+  transform: scale(1.05);
+}
+.guide-check input:checked::before {
+  content: '✓';
+  font-size: 14px;
+  line-height: 1;
+  color: white;
+  font-weight: 900;
+}
+.guide-check .cb-label {
+  line-height: 1.55;
+}
+
+.completion-card {
+  margin-top: 28px;
+  border: 1.5px solid #d5e4f5;
+  background: linear-gradient(135deg, #ffffff 0%, #f4f8fe 100%);
+  border-radius: 20px;
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(49, 130, 246, 0.06);
+}
+.completion-card h3 {
+  font-size: 20px;
+  font-weight: 850;
+  color: var(--toss-text-main);
+  margin: 0 0 8px;
+}
+.completion-card p {
+  color: var(--toss-text-sub);
+  font-size: 13.5px;
+  margin: 0 0 16px;
+}
+.completion-meter {
+  width: 100%;
+  height: 8px;
+  border-radius: 99px;
+  background: #e3eaf0;
+  overflow: hidden;
+  margin: 14px 0 20px;
+}
+.completion-meter > span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #3182f6, #00b269);
+  width: 0;
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 99px;
+}
+.completion-card button {
+  padding: 14px 24px;
+  font-size: 14.5px;
+  border-radius: 14px;
+  border: 0;
+  background: var(--toss-blue);
+  color: #fff;
+  font-weight: 800;
+  box-shadow: 0 4px 14px rgba(49, 130, 246, 0.3);
+  transition: all 0.2s;
+}
+.completion-card button:not(:disabled):hover {
+  background: var(--toss-blue-hover);
+  box-shadow: 0 6px 18px rgba(49, 130, 246, 0.4);
+}
+.completion-card button:disabled {
+  background: #c5d0db;
+  color: #fff;
+  box-shadow: none;
+}
+.completion-card .small-note {
+  font-size: 11.5px;
+  color: var(--toss-text-muted);
+  margin: 12px 0 0;
+}
+
+/* Rules Section Styling (운영규정) */
+.rule-summary-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 0 0 16px;
+  gap: 12px;
+}
+.rule-summary-head h2 {
+  font-size: 24px;
+  font-weight: 850;
+  color: var(--toss-text-main);
+  margin: 0;
+}
+.rule-summary-head p {
+  font-size: 13px;
+  color: var(--toss-text-muted);
+  margin: 0;
+}
+.policy-note {
+  background: #fff9ee;
+  border: 1.5px solid #ffe3b3;
+  border-radius: 16px;
+  color: #8c5200;
+  padding: 18px 22px;
+  margin-bottom: 24px;
+  font-size: 13.5px;
+  line-height: 1.7;
+}
+.policy-note strong {
+  color: #6d3f00;
+  font-weight: 850;
+}
+.policy-stats {
+  display: flex;
+  gap: 10px;
+  margin: 16px 0 24px;
+  flex-wrap: wrap;
+}
+.stat-chip {
+  border: 1px solid var(--toss-line);
+  background: #fff;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-size: 13px;
+  color: var(--toss-text-sub);
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+}
+.stat-chip strong {
+  font-size: 18px;
+  color: var(--toss-blue);
+  margin-right: 4px;
+  font-weight: 850;
+}
+.rules-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.utility-btn {
+  border: 1.5px solid var(--toss-line);
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px 16px;
+  color: var(--toss-text-main);
+  font-size: 13px;
+  font-weight: 750;
+}
+.utility-btn:hover {
+  background: var(--toss-blue-light);
+  border-color: #bad6ff;
+  color: var(--toss-blue);
+}
+
+.rules-group {
+  margin: 32px 0 16px;
+  scroll-margin-top: 90px;
+}
+.rules-group h2 {
+  font-size: 20px;
+  color: var(--toss-text-main);
+  font-weight: 850;
+  margin-bottom: 6px;
+}
+.rules-group p {
+  color: var(--toss-text-muted);
+  font-size: 12.5px;
+  margin: 0 0 14px;
+}
+.rule-card {
+  border: 1px solid var(--toss-line);
+  background: #fff;
+  border-radius: 16px;
+  margin: 10px 0;
+  overflow: hidden;
+  scroll-margin-top: 90px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.rule-card:hover {
+  border-color: #bad6ff;
+  box-shadow: 0 4px 16px rgba(49, 130, 246, 0.06);
+}
+.rule-card[open] {
+  border-color: #a8cdfd;
+  box-shadow: 0 8px 24px rgba(49, 130, 246, 0.08);
+}
+.rule-card > summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 22px;
+  min-height: 60px;
+}
+.rule-card > summary::-webkit-details-marker {
+  display: none;
+}
+.rule-card .rule-index {
+  color: var(--toss-blue);
+  background: var(--toss-blue-light);
+  padding: 5px 10px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 850;
+}
+.rule-card .rule-title {
+  flex: 1;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--toss-text-main);
+  font-weight: 750;
+}
+.rule-card .rule-chevron {
+  width: 18px;
+  height: 18px;
+  stroke: var(--toss-text-muted);
+  fill: none;
+  stroke-width: 2.2;
+  transform: rotate(0);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.rule-card[open] .rule-chevron {
+  transform: rotate(180deg);
+  stroke: var(--toss-blue);
+}
+.rule-body {
+  border-top: 1px solid #edf1f5;
+  padding: 22px 24px 20px;
+  background: #fafbfc;
+}
+.rule-body.rich-text {
+  font-size: 14.5px;
+  line-height: 1.85;
+}
+.source-note {
+  margin-top: 36px;
+  border-top: 1px solid var(--toss-line);
+  padding-top: 24px;
+  font-size: 12px;
+  color: var(--toss-text-muted);
+  line-height: 1.7;
+}
+
+/* Right Rail (우측 독서 도우미) */
+.right-rail {
+  position: sticky;
+  top: calc(var(--top-h) + 24px);
+  align-self: start;
+  max-height: calc(100vh - var(--top-h) - 48px);
+  background: var(--toss-card-bg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--toss-card-border);
+  box-shadow: var(--shadow);
+  padding: 24px 18px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+.rail-title {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--toss-text-muted);
+  font-weight: 850;
+  margin: 0 0 12px 6px;
+}
+.rail-card {
+  padding: 18px 16px;
+  background: var(--toss-bg);
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
+.rail-card h3 {
+  font-size: 14px;
+  color: var(--toss-text-main);
+  margin: 0 0 6px;
+  font-weight: 800;
+}
+.rail-card p {
+  font-size: 12px;
+  color: var(--toss-text-sub);
+  line-height: 1.6;
+  margin: 0;
+}
+.rail-progress-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.rail-progress-row strong {
+  font-size: 26px;
+  letter-spacing: -0.04em;
+  color: var(--toss-blue);
+  line-height: 1;
+  font-weight: 850;
+}
+.rail-progress-row small {
+  color: var(--toss-text-muted);
+  font-size: 11px;
+}
+.rail-progress-bar {
+  height: 6px;
+  background: #e3e8ee;
+  border-radius: 99px;
+  overflow: hidden;
+}
+.rail-progress-bar span {
+  height: 100%;
+  width: 0;
+  display: block;
+  background: linear-gradient(90deg, #3182f6, #00b269);
+  transition: width 0.2s;
+  border-radius: 99px;
+}
+.rail-shortcut {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 4px;
+  color: var(--toss-text-sub);
+  font-size: 12.5px;
+  font-weight: 650;
+  text-decoration: none;
+  border-bottom: 1px solid #eef2f6;
+  transition: all 0.15s;
+}
+.rail-shortcut:last-child {
+  border: 0;
+}
+.rail-shortcut:hover {
+  color: var(--toss-blue);
+  transform: translateX(3px);
+}
+.rail-shortcut svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  flex-shrink: 0;
+}
+.rail-footer {
+  font-size: 11px;
+  color: var(--toss-text-muted);
+  line-height: 1.6;
+  margin-top: 24px;
+  padding-left: 6px;
+}
+
+/* Modals & Overlays */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  display: none;
+}
+.overlay.is-open {
+  display: flex;
+}
+.overlay-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+}
+.drawer {
+  position: relative;
+  z-index: 1;
+  width: min(380px, 88vw);
+  height: 100%;
+  background: #fff;
+  box-shadow: 10px 0 40px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.drawer-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 22px;
+  border-bottom: 1px solid var(--toss-line);
+}
+.drawer-head strong {
+  font-size: 17px;
+  font-weight: 850;
+  color: var(--toss-text-main);
+}
+.drawer-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 18px;
+}
+.drawer .toc-link {
+  font-size: 14.5px;
+  padding: 12px 14px;
+}
+.drawer .toc-group {
+  font-size: 12.5px;
+}
+.drawer-subtitle {
+  padding: 10px;
+  font-size: 12px;
+  font-weight: 750;
+  color: var(--toss-text-muted);
+}
+.drawer-font-control {
+  margin: 0 0 16px;
+  padding: 0 8px 16px;
+  border-bottom: 1px solid var(--toss-line);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--toss-text-sub);
+  font-size: 13px;
+}
+.drawer-font-control span {
+  flex: 1;
+  font-weight: 750;
+}
+.drawer-font-control button {
+  border: 1px solid var(--toss-line);
+  border-radius: 10px;
+  background: var(--toss-bg);
+  color: var(--toss-text-main);
+  padding: 7px 14px;
+  font-weight: 750;
+  font-size: 13px;
+}
+
+/* Search Modal */
+.search-modal {
+  position: relative;
+  margin: auto;
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: var(--shadow-float);
+  width: min(640px, calc(100vw - 32px));
+  max-height: min(78vh, 720px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 1;
+}
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 22px;
+  border-bottom: 1px solid var(--toss-line);
+}
+.search-box svg {
+  height: 22px;
+  width: 22px;
+  flex-shrink: 0;
+  stroke: var(--toss-blue);
+  fill: none;
+  stroke-width: 2.2;
+}
+.search-box input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  color: var(--toss-text-main);
+  font-size: 16px;
+  font-weight: 600;
+}
+.search-box input::placeholder {
+  color: var(--toss-text-muted);
+}
+.search-results {
+  overflow-y: auto;
+  padding: 14px;
+  flex: 1;
+}
+.search-result {
+  width: 100%;
+  text-align: left;
+  display: block;
+  border: 1.5px solid transparent;
+  background: #fff;
+  padding: 14px 16px;
+  border-radius: 14px;
+  margin: 3px 0;
+  color: var(--toss-text-main);
+  transition: all 0.15s;
+}
+.search-result:hover, .search-result:focus-visible {
+  background: var(--toss-blue-light);
+  border-color: #bad6ff;
+}
+.search-result b {
+  font-size: 15px;
+  display: block;
+  color: var(--toss-text-main);
+}
+.search-result span {
+  font-size: 11.5px;
+  color: var(--toss-blue);
+  font-weight: 800;
+  display: block;
+  margin: 2px 0 4px;
+}
+.search-result p {
+  margin: 0;
+  color: var(--toss-text-sub);
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+.search-results mark {
+  background: #ffec99;
+  color: #191f28;
+  border-radius: 3px;
+  padding: 1px 3px;
+}
+.search-empty {
+  text-align: center;
+  padding: 40px 16px;
+  color: var(--toss-text-muted);
+  font-size: 14px;
+}
+.search-footer {
+  padding: 12px 20px;
+  border-top: 1px solid var(--toss-line);
+  color: var(--toss-text-muted);
+  font-size: 11.5px;
+  background: #fafbfc;
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  z-index: 230;
+  left: 50%;
+  bottom: 32px;
+  transform: translate(-50%, 20px);
+  pointer-events: none;
+  opacity: 0;
+  border-radius: 14px;
+  background: rgba(25, 31, 40, 0.94);
+  color: #fff;
+  padding: 12px 20px;
+  font-size: 13.5px;
+  font-weight: 700;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.25s, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+}
+.toast.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* Confetti Canvas */
+#confetti-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* User-accessible text scaling */
+.content-inner .rich-text {
+  font-size: calc(15.5px + var(--font-adjust, 0px));
+}
+.content-inner .rule-body.rich-text {
+  font-size: calc(14.5px + var(--font-adjust, 0px));
+}
+
+/* Mobile & Responsive Rules */
+.mobile-bottom { display: none; }
+.mobile-float { display: none; }
+
+@media (max-width: 1240px) {
+  .workspace {
+    grid-template-columns: 240px minmax(0, 1fr);
+  }
+  .right-rail {
+    display: none;
+  }
+}
+
+@media (max-width: 860px) {
+  :root {
+    --top-h: 60px;
+  }
+  .topbar {
+    padding: 0 16px;
+    gap: 8px;
+  }
+  .topbar [data-font-adjust], .topbar [data-print] {
+    display: none;
+  }
+  .topbar-actions {
+    gap: 4px;
+  }
+  .icon-button {
+    height: 38px;
+    min-width: 38px;
+    padding: 0 8px;
+  }
+  .workspace {
+    display: block;
+    padding: 16px 14px 90px;
+  }
+  .sidebar {
+    display: none;
+  }
+  .topbar-caption {
+    display: none;
+  }
+  .action-label, .key-hint {
+    display: none;
+  }
+  .header-menu {
+    display: inline-flex;
+  }
+  .hero {
+    padding: 36px 20px;
+  }
+  .hero h1 {
+    font-size: 26px;
+  }
+  .content-section {
+    padding: 24px 16px;
+  }
+  .ecosystem-grid {
+    grid-template-columns: 1fr;
+  }
+  .principle-grid {
+    grid-template-columns: 1fr;
+  }
+  .boundary-grid {
+    grid-template-columns: 1fr;
+  }
+  .career-path {
+    grid-template-columns: 1fr;
+  }
+  .emergency-grid {
+    grid-template-columns: 1fr;
+  }
+  .mobile-bottom {
+    position: fixed;
+    z-index: 110;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-around;
+    background: rgba(255, 255, 255, 0.94);
+    border-top: 1px solid var(--toss-line);
+    padding: 8px 6px max(8px, env(safe-area-inset-bottom));
+    box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.04);
+    backdrop-filter: blur(16px);
+  }
+  .bottom-link {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    padding: 5px 0;
+    border: 0;
+    background: transparent;
+    color: var(--toss-text-muted);
+    font-size: 10.5px;
+    font-weight: 750;
+  }
+  .bottom-link svg {
+    height: 20px;
+    width: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+  }
+  .bottom-link.is-active {
+    color: var(--toss-blue);
+  }
+  .mobile-float {
+    position: fixed;
+    right: 16px;
+    bottom: 84px;
+    z-index: 99;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid var(--toss-line);
+    background: #fff;
+    color: var(--toss-text-main);
+    display: grid;
+    place-items: center;
+    box-shadow: var(--shadow-float);
+  }
+  .mobile-float svg {
+    height: 20px;
+    width: 20px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2.2;
+  }
+}
+
+@media (max-width: 360px) {
+  .topbar {
+    gap: 4px;
+    padding: 0 10px;
+  }
+  .brand-name span {
+    display: none;
+  }
+}
+
+/* Embed Mode (Inside Careflow App) */
+body.embed-mode .topbar { display: none; }
+body.embed-mode { --top-h: 46px; }
+body.embed-mode .embed-switchbar {
+  display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 110;
+  height: 46px;
+  align-items: center;
+  gap: 4px;
+  padding: 0 14px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--toss-line);
+}
+.embed-switchbar { display: none; }
+.embed-switchbar .embed-brand {
+  font-size: 12px;
+  font-weight: 850;
+  color: var(--toss-blue);
+  margin-right: auto;
+}
+.embed-switchbar button {
+  font-size: 12px;
+  font-weight: 750;
+  border: 0;
+  background: transparent;
+  color: var(--toss-text-sub);
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+.embed-switchbar button.is-active {
+  color: var(--toss-blue);
+  background: var(--toss-blue-light);
+}
+body.embed-mode .mobile-bottom { display: none !important; }
+body.embed-mode .workspace { min-height: calc(100vh - 46px); padding-top: 12px; }
+body.embed-mode .sidebar, body.embed-mode .right-rail { top: 56px; }
+
+/* Print Mode */
+@media print {
+  body { background: white; font-size: 12px; }
+  .topbar, .sidebar, .right-rail, .mobile-bottom, .mobile-float, .reading-line,
+  .hero-actions, .rules-actions, .completion-card button, .skip-link, .source-note, .toast, #confetti-canvas {
+    display: none !important;
+  }
+  .workspace { display: block; max-width: none; padding: 0; }
+  .content-section { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; margin-bottom: 20px; }
+  .rule-card { break-inside: avoid; border: 1px solid #ddd; }
+  .rule-card .rule-body { display: block !important; }
+}
+
+/* Mobile readability patch v1.2 — 2026-11-05 */
+:root { --toss-blue-dark:#1557be; }
+.chapter-head, .chapter-head h2, .principle-content, .step-body,
+.phone-caller-text, .rule-title, .rich-text > * {min-width:0;}
+.chapter-head h2, .rule-title, .node-title, .node-desc, .mockup-box,
+.faq-item, .rich-text li {overflow-wrap:anywhere;}
+.rich-text {word-break:normal;}
+.rich-text .chapter-lead {font-size:1.025em;line-height:1.65;color:#374151;}
+.rich-text .small-tip {border-left:3px solid var(--toss-blue);background:#f4f8fe;
+  border-radius:0 10px 10px 0;padding:11px 14px;font-size:14px;margin:16px 0 0;}
+.rich-text .fine-print {font-size:12.5px;color:#737e8c;line-height:1.6;margin:14px 0 0;}
+.compact-list {margin:14px 0!important;padding-left:20px!important;}
+.compact-list li {margin:8px 0!important;line-height:1.6;}
+.log-valid {font-size:12px;color:var(--toss-green);font-weight:700;}
+.mini-action-list {display:flex;flex-direction:column;gap:8px;margin:14px 0;}
+.mini-action-list > div {background:#f7f9fc;border:1px solid #e9edf2;
+  padding:13px 15px;border-radius:12px;}
+.mini-action-list b {display:block;font-size:14px;color:#191f28;}
+.mini-action-list p {margin:3px 0 0;font-size:13px;line-height:1.65;}
+.faq-list {display:grid;gap:10px;}
+.faq-item {border:1px solid var(--toss-line);border-radius:13px;background:#fff;}
+.faq-item summary {cursor:pointer;padding:14px 34px 14px 16px;position:relative;
+  font-size:14px;color:var(--toss-text-main);font-weight:750;line-height:1.5;list-style:none;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{content:'+';position:absolute;right:14px;top:50%;transform:translateY(-50%);
+  font-size:22px;color:#6b7280;font-weight:400;}
+.faq-item[open] summary::after{content:'−';}
+.faq-item p {padding:0 16px 14px;margin:0;font-size:13.5px;line-height:1.65;}
+.faq-item summary:focus-visible{outline:3px solid var(--toss-blue);outline-offset:3px;}
+.rich-text table{max-width:100%;}
+/* Make table cells self-contained on very narrow screens, with column names. */
+@media (max-width:600px){
+  html{scroll-padding-top:68px;}
+  body{overflow-x:hidden;}
+  .workspace {padding:12px 10px calc(100px + env(safe-area-inset-bottom));}
+  .doc-panel,.content-inner{gap:14px;}
+  .hero{padding:24px 18px;border-radius:18px;}
+  .hero h1{font-size:clamp(24px,7.8vw,30px);line-height:1.31;letter-spacing:-.04em;}
+  .hero-desc{font-size:14px;line-height:1.65;margin-bottom:18px;}
+  .hero-overline{font-size:10px;letter-spacing:.03em;max-width:100%;}
+  .hero-actions{gap:8px;}
+  .button-primary,.button-secondary{padding:10px 12px;font-size:12.5px;min-height:42px;justify-content:center;}
+  .hero-meta{gap:6px;margin-top:18px;font-size:11px;}
+  .content-section{padding:20px 15px;border-radius:18px;}
+  .chapter-head{align-items:flex-start;gap:9px;margin-bottom:15px;padding-bottom:13px;}
+  .chapter-no{padding:5px 9px;font-size:11px;border-radius:8px;}
+  .chapter-head h2{font-size:clamp(18px,5.2vw,21px);line-height:1.4;}
+  .rich-text{font-size:14px;line-height:1.75;overflow-wrap:anywhere;}
+  .content-inner .rich-text{font-size:calc(14px + var(--font-adjust,0px));}
+  .rich-text h3{font-size:16px;margin:18px 0 10px;line-height:1.4;display:block;}
+  .rich-text h4{font-size:14px;margin:10px 0 6px;}
+  .rich-text p{margin-bottom:10px;}
+  .rich-text ul,.rich-text ol{padding-left:19px;margin:10px 0 14px;}
+  .rich-text li{padding-left:2px;margin:6px 0;}
+  .toss-diagram-wrap{padding:12px;margin:13px 0;border-radius:13px;max-width:100%;}
+  .diagram-title{font-size:12px;margin-bottom:10px;}
+  /* Explicitly override legacy inline grid-template-columns:repeat(3,1fr). */
+  .content-inner .ecosystem-grid,
+  .content-inner .ecosystem-grid[style]{grid-template-columns:minmax(0,1fr)!important;gap:7px;}
+  .ecosystem-node{display:grid;grid-template-columns:35px minmax(0,1fr);
+     grid-template-rows:auto auto;column-gap:10px;row-gap:0;align-items:center;
+     padding:10px 11px;text-align:left;border-radius:12px;box-shadow:none;min-width:0;}
+  .ecosystem-node:hover{transform:none;box-shadow:none;}
+  .node-icon{grid-column:1;grid-row:1/span 2;width:35px;height:35px;
+    font-size:18px;border-radius:10px;margin:0;}
+  .node-title{grid-column:2;grid-row:1;font-size:13.5px;line-height:1.45;margin:0;}
+  .node-desc{grid-column:2;grid-row:2;font-size:12px;line-height:1.5;}
+  .principle-grid,.boundary-grid{grid-template-columns:1fr;gap:8px;margin:12px 0;}
+  .principle-card{padding:12px;gap:10px;border-radius:13px;align-items:center;}
+  .principle-card:hover,.career-step:hover,.step-item:hover{transform:none;box-shadow:none;}
+  .principle-badge{width:34px;height:34px;border-radius:10px;font-size:18px;}
+  .principle-content h4{font-size:13.5px;margin:0 0 2px;}
+  .principle-content p{font-size:12px;line-height:1.4;}
+  .boundary-card{padding:13px 14px;border-radius:13px;}
+  .boundary-tag{margin-bottom:6px;padding:3px 9px;font-size:11px;}
+  .boundary-card h4{font-size:14px;margin:0 0 3px;}
+  .boundary-card p{font-size:12.5px;margin:0;line-height:1.55;}
+  .career-path{grid-template-columns:1fr;gap:8px;margin:14px 0;}
+  .career-step{min-height:0;display:grid;grid-template-columns:minmax(0,1fr) auto;
+    align-items:start;padding:13px;border-radius:13px;gap:3px 10px;}
+  .career-step small{grid-column:1/span 2;font-size:10px;padding:3px 7px;margin:0 0 2px;}
+  .career-step h3{grid-column:1;grid-row:2;font-size:15px;margin:0;}
+  .career-step p{grid-column:1;grid-row:3;font-size:12px;margin:0;}
+  .career-step-badge{grid-column:2;grid-row:2/span 2;align-self:center;
+    font-size:10px;max-width:94px;text-align:center;padding:5px 7px;}
+  .stepper-flow{gap:7px;margin:10px 0;}
+  .step-item{padding:11px 12px;border-radius:12px;gap:10px;}
+  .step-badge{width:31px;height:31px;font-size:12px;border-radius:9px;box-shadow:none;}
+  .step-title{font-size:13.5px;}
+  .step-desc{font-size:12px;line-height:1.55;}
+  .phone-simulator,.log-mockup{padding:14px;margin:12px 0;border-radius:14px;}
+  .phone-screen-header{margin-bottom:12px;padding-bottom:10px;}
+  .phone-caller-text b{font-size:12.5px;}
+  .phone-caller-text span{font-size:11px;}
+  .chat-bubble{max-width:90%;padding:9px 11px;font-size:12.5px;line-height:1.62;}
+  .chat-bubbles{gap:8px;}
+  .mockup-header{align-items:flex-start;flex-wrap:wrap;gap:6px;}
+  .mockup-field{margin-bottom:9px;}
+  .mockup-box{padding:10px 11px;font-size:12.5px;line-height:1.55;}
+  .emergency-grid{grid-template-columns:1fr;gap:8px;margin:13px 0;}
+  .emergency-card{padding:14px;border-radius:13px;}
+  .emergency-header{margin-bottom:6px;}
+  .emergency-card h4{font-size:13.5px;margin:0 0 4px;}
+  .emergency-card p{font-size:12.5px;line-height:1.6;}
+  .guide-checks{gap:7px;margin:14px 0;}
+  .guide-check{padding:11px 12px;gap:10px;font-size:13px;border-radius:12px;}
+  .guide-check .cb-label{min-width:0;overflow-wrap:anywhere;}
+  .guide-check .cb-label p{margin:0;line-height:1.5;}
+  .completion-card{padding:17px;margin-top:14px;border-radius:15px;}
+  .completion-card h3{font-size:17px;}
+  .completion-card button{width:100%;padding:11px 12px;font-size:13px;}
+  .policy-note{padding:13px 14px;font-size:12.5px;line-height:1.65;margin-bottom:15px;}
+  .policy-stats{gap:6px;margin:10px 0 14px;}
+  .stat-chip{padding:7px 9px;font-size:11px;}
+  .stat-chip strong{font-size:15px;}
+  .rule-summary-head{align-items:flex-start;}
+  .rule-summary-head h2{font-size:19px;}
+  .rule-summary-head p{display:none;}
+  .rules-actions{gap:7px;flex-wrap:wrap;}
+  .utility-btn{padding:9px 11px;font-size:12px;flex:1;}
+  .rules-group{margin:20px 0 9px;}
+  .rules-group h2{font-size:16px;line-height:1.4;overflow-wrap:anywhere;}
+  .rules-group p{display:none;}
+  .rule-card{border-radius:12px;margin:7px 0;}
+  .rule-card > summary{padding:13px 12px;min-height:52px;gap:9px;align-items:center;}
+  .rule-card .rule-index{font-size:11px;padding:5px 7px;}
+  .rule-card .rule-title{font-size:13.5px;line-height:1.48;}
+  .rule-card .rule-chevron{width:16px;height:16px;flex-shrink:0;}
+  .rule-body{padding:13px 12px;}
+  .content-inner .rule-body.rich-text{font-size:calc(13px + var(--font-adjust,0px));line-height:1.75;}
+  .rule-body ol,.rule-body ul{padding-left:19px;}
+  .rule-body li{padding-left:0;margin:9px 0;}
+  .rich-text table{display:block;overflow-x:visible;border:0;margin:12px 0;}
+  .rich-text table thead{display:none;}
+  .rich-text table tbody{display:block;}
+  .rich-text table tbody tr{display:block;background:#fff;border:1px solid #e5e8eb;
+     border-radius:12px;padding:9px 10px;margin:8px 0;}
+  .rich-text table tbody td{display:block;border:0;padding:6px 3px;font-size:12.5px;min-width:0;}
+  .rich-text table tbody td::before{content:attr(data-label);display:block;color:#64748b;
+     font-size:11px;font-weight:800;margin-bottom:2px;}
+  .rich-text table tbody td:not(:last-child){border-bottom:1px solid #f0f2f5;}
+  .toast{max-width:calc(100vw - 30px);white-space:normal;text-align:center;font-size:12px;bottom:85px;}
+  .source-note{font-size:11px;line-height:1.5;}
+  .drawer{width:min(360px,92vw);}
+  .drawer-head{padding:16px;}
+  .search-box{padding:13px;}
+  .search-results{padding:8px;}
+  .bottom-link{font-size:10.5px;}
+}
+@media (min-width:861px) and (max-width:1100px){
+  .content-inner .ecosystem-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+}
+@media (min-width:601px) and (max-width:860px){
+  .ecosystem-grid,.ecosystem-grid[style]{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+  .career-step{min-height:0;}
+}
+@media (max-width:600px){
+  body.embed-mode .workspace{padding-bottom:20px;}
+}
+@media (max-width:345px){
+  .topbar{padding:0 8px;gap:4px;}
+  .topbar-logo{gap:7px;}
+  .brand-mark{width:34px;height:34px;}
+  .brand-name b{font-size:13px;}
+  .icon-button{height:36px;min-width:36px;padding:0 7px;}
+  .workspace{padding-left:7px;padding-right:7px;}
+  .content-section{padding:17px 12px;}
+  .hero{padding:22px 15px;}
+  .chapter-head h2{font-size:18px;}
+  .hero-actions a{flex:1;white-space:normal;text-align:center;}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;}
+}
+@media print{
+  .faq-item{break-inside:avoid;}
+  .faq-item > p{display:block!important;}
+}
+
+</style>
+</head>
+<body>
+<a class="skip-link" href="#guide-g01">본문으로 바로가기</a>
+<div id="top-progress" class="reading-line" role="progressbar" aria-label="문서 읽기 위치" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+<header class="topbar">
+ <a class="topbar-logo" href="#guide" aria-label="노리케어 가이드 홈">
+  <span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M8 23V9l8 13V9m7 0v14" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="23" cy="8" r="2" fill="#bad6ff"/></svg></span><span class="brand-name"><b>NORICARE</b><span>CAREFLOW · COACH PORTAL</span></span>
+ </a>
+ <span class="topbar-caption">코치 가이드 · 운영규정</span><span class="topbar-spacer"></span>
+ <div class="topbar-actions">
+ <button type="button" class="icon-button" data-font-adjust="-1" aria-label="글자 작게">가−</button>
+ <button type="button" class="icon-button" data-font-adjust="1" aria-label="글자 크게">가＋</button>
+ <button type="button" class="icon-button" data-open-overlay="search" aria-label="문서 검색"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="7.1"/><path d="m16 16 5 5"/></svg><span class="action-label">검색</span><span class="key-hint">Ctrl K</span></button>
+ <button type="button" class="icon-button" data-print aria-label="현재 문서 인쇄"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V3h12v6M6 17H4V9h16v8h-2M6 14h12v7H6z"/></svg></button>
+ <button type="button" class="icon-button header-menu" data-open-overlay="toc" aria-label="목차 열기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+ </div>
+</header>
+<div class="embed-switchbar" aria-label="케어플로우 내 문서 메뉴">
+ <span class="embed-brand">코치 가이드</span>
+ <button type="button" data-select="guide" class="is-active" aria-selected="true">온보딩</button>
+ <button type="button" data-select="rules" aria-selected="false">운영규정</button>
+ <button type="button" data-open-overlay="toc" aria-label="목차 열기">목차</button>
+ <button type="button" data-open-overlay="search" aria-label="검색 열기">검색</button>
+</div>
+<div class="workspace">
+ <aside class="sidebar" aria-label="문서와 목차 탐색">
+  <p class="sidebar-title">COACH LIBRARY</p>
+  <div class="document-switch" role="tablist" aria-label="문서 선택">
+   <button type="button" class="switch-btn is-active" role="tab" aria-selected="true" data-select="guide"><span class="switch-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.7c-3.5-2.3-6.1-2.2-9-1.5v12c3.4-.6 6.4-.5 9 1.5 2.5-2 5.5-2.1 9-1.5v-12c-3-.7-5.5-.8-9 1.5zM12 6.7v12"/></svg></span><span><strong>온보딩 · 실무 가이드</strong><small>회사 소개부터 첫 수업까지</small></span></button>
+   <button type="button" class="switch-btn" role="tab" aria-selected="false" data-select="rules"><span class="switch-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-3.6 7-10V5l-7-3-7 3v7c0 6.4 7 10 7 10zM9 12l2 2 4-4"/></svg></span><span><strong>프리랜서 운영규정</strong><small>권리 · 의무 · 계약 기준</small></span></button>
+  </div>
+  <div class="toc-header"><strong>목차</strong><span style="font-size:10px;color:#8b95a1;font-weight:700">CONTENTS</span></div>
+  <nav data-toc-pane="guide" aria-label="온보딩 목차"><div class="toc-items"><a class="toc-link" href="#guide-g01"><span class="toc-num">01</span><span>리브라이블리와 노리케어</span></a><a class="toc-link" href="#guide-g02"><span class="toc-num">02</span><span>코치 커리어 성장</span></a><a class="toc-link" href="#guide-g03"><span class="toc-num">03</span><span>활동 전 준비</span></a><a class="toc-link" href="#guide-g04"><span class="toc-num">04</span><span>의뢰부터 첫 수업까지</span></a><a class="toc-link" href="#guide-g05"><span class="toc-num">05</span><span>첫 연락과 일정 조율</span></a><a class="toc-link" href="#guide-g06"><span class="toc-num">06</span><span>첫 방문과 수업</span></a><a class="toc-link" href="#guide-g07"><span class="toc-num">07</span><span>Careflow 일지·정산</span></a><a class="toc-link" href="#guide-g08"><span class="toc-num">08</span><span>사고·민원 대응</span></a><a class="toc-link" href="#guide-g09"><span class="toc-num">09</span><span>지역별 기준 확인</span></a><a class="toc-link" href="#guide-g10"><span class="toc-num">10</span><span>자주 묻는 질문</span></a><a class="toc-link" href="#guide-g11"><span class="toc-num">11</span><span>온보딩 완료 체크리스트</span></a></div></nav>
+  <nav data-toc-pane="rules" aria-label="운영규정 목차" hidden><div class="toc-items"><p class="toc-group">제1장 기본 관계와 독립성</p><a class="toc-link" href="#rules-r01"><span class="toc-num">1</span><span>목적 및 적용대상</span></a><a class="toc-link" href="#rules-r02"><span class="toc-num">2</span><span>계약문서의 우선순위와 권리 보전</span></a><a class="toc-link" href="#rules-r03"><span class="toc-num">3</span><span>독립된 프리랜서 전문가</span></a><a class="toc-link" href="#rules-r04"><span class="toc-num">4</span><span>전문자격·진술 및 확인</span></a><p class="toc-group">제2장 개별 의뢰·대상자 안전·원계약 준수</p><a class="toc-link" href="#rules-r05"><span class="toc-num">5</span><span>개별 의뢰의 성립과 회사의 배정권</span></a><a class="toc-link" href="#rules-r06"><span class="toc-num">6</span><span>전문적 재량과 업무 범위</span></a><a class="toc-link" href="#rules-r07"><span class="toc-num">7</span><span>원계약 준수 및 외부 약정 금지</span></a><a class="toc-link" href="#rules-r08"><span class="toc-num">8</span><span>대상자 동의 및 거절·연락두절</span></a><a class="toc-link" href="#rules-r09"><span class="toc-num">9</span><span>일정 변경·무단 대리수행</span></a><a class="toc-link" href="#rules-r10"><span class="toc-num">10</span><span>청렴·대외 신뢰</span></a><p class="toc-group">제3장 수행기록·정산 및 회사의 회복권</p><a class="toc-link" href="#rules-r11"><span class="toc-num">11</span><span>실적 증빙·수정이력</span></a><a class="toc-link" href="#rules-r12"><span class="toc-num">12</span><span>보수·검수 및 단가</span></a><a class="toc-link" href="#rules-r13"><span class="toc-num">13</span><span>정산 보류·감액·환수 및 이의</span></a><a class="toc-link" href="#rules-r14"><span class="toc-num">14</span><span>상계·채권 회수</span></a><a class="toc-link" href="#rules-r15"><span class="toc-num">15</span><span>코치의 손해배상·구상의무</span></a><a class="toc-link" href="#rules-r16"><span class="toc-num">16</span><span>책임의 분리·회사의 면책 범위</span></a><p class="toc-group">제4장 안전·보험·개인정보·영업자산</p><a class="toc-link" href="#rules-r17"><span class="toc-num">17</span><span>응급 대응 및 위험 보고</span></a><a class="toc-link" href="#rules-r18"><span class="toc-num">18</span><span>보험·장비 및 비용</span></a><a class="toc-link" href="#rules-r19"><span class="toc-num">19</span><span>개인정보·민감정보 및 수탁자 지위</span></a><a class="toc-link" href="#rules-r20"><span class="toc-num">20</span><span>비밀유지·자료 회수·대외 발언</span></a><a class="toc-link" href="#rules-r21"><span class="toc-num">21</span><span>업무 산출물·지식재산·초상권</span></a><a class="toc-link" href="#rules-r22"><span class="toc-num">22</span><span>직접거래·고객유인·우회거래 금지</span></a><a class="toc-link" href="#rules-r23"><span class="toc-num">23</span><span>청렴·공공사업 리스크 및 법적 대응</span></a><p class="toc-group">제5장 위반 조치·계약 종료·개정</p><a class="toc-link" href="#rules-r24"><span class="toc-num">24</span><span>실적 감사·모니터링</span></a><a class="toc-link" href="#rules-r25"><span class="toc-num">25</span><span>신규 배정 보류·중단 및 계약상 조치</span></a><a class="toc-link" href="#rules-r26"><span class="toc-num">26</span><span>계약 해지·잔여 의뢰·자료 인계</span></a><a class="toc-link" href="#rules-r27"><span class="toc-num">27</span><span>위약벌·예정손해배상 및 권리 행사</span></a><a class="toc-link" href="#rules-r28"><span class="toc-num">28</span><span>개정·동의·효력</span></a><a class="toc-link" href="#rules-r29"><span class="toc-num">29</span><span>분쟁 및 권리존속</span></a><p class="toc-group">별표 · 실무 증빙 및 시행 전 확인</p><a class="toc-link" href="#rules-a01"><span class="toc-num">별표</span><span>별표 1(회사의 증빙 확보 기준)</span></a><a class="toc-link" href="#rules-a02"><span class="toc-num">별표</span><span>별표 2(연계하여 확인할 계약문서)</span></a></div></nav>
+  <div class="sidebar-note">서비스는 현장 전문가의 전문적 재량과 대상자 안전을 함께 존중합니다.<br>최신 확정 의뢰와 서명된 계약조건을 우선 확인하세요.</div>
+ </aside>
+ <main class="reader" id="main-content">
+  <article class="doc-panel" id="panel-guide" aria-label="온보딩 실무 가이드">
+   <section class="hero">
+    <p class="hero-overline">NORICARE / FIELD GUIDE</p>
+    <h1>한 사람의 일상이<br>다시 움직이도록.</h1>
+    <p class="hero-desc">노리케어를 이해하고, 첫 수업을 준비하고, 전문가로 성장하는 방법.</p>
+    <div class="hero-actions"><a class="button-primary" href="#guide-g01">가이드 시작하기 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a><a class="button-secondary" href="#guide-g02">성장 경로 살펴보기</a></div>
+    <div class="hero-meta"><span>현장 전문가를 위한 실무 가이드</span><span class="mini-dot"></span><span>2026.11.05</span><span class="mini-dot"></span><span>v1.0 · 내부 검토본</span></div>
+   </section>
+   <div class="content-inner">
+    <p class="lead-note"><strong>이 문서를 읽는 순서</strong><br>회사 소개 → 성장 → 첫 수업 → 기록·안전. 보수·계약조건은 별도 서명 계약서를 확인하세요.</p>
+    <section class="content-section searchable" id="guide-g01" data-doc="guide" data-search-target="1" data-search-title="리브라이블리와 노리케어">
+<div class="chapter-head"><span class="chapter-no">01</span><h2>리브라이블리와 노리케어</h2></div>
+<div class="rich-text"><p class="chapter-lead">리브라이블리는 어르신의 건강한 일상을 돕는 시니어 헬스케어 기업입니다. <strong>노리케어는 방문운동</strong>, <strong>Careflow는 수업·기록·정산을 연결</strong>합니다.</p>
+<div class="toss-diagram-wrap"><div class="diagram-title">노리케어 서비스가 연결되는 방식</div>
+<div class="ecosystem-grid">
+<div class="ecosystem-node"><div class="node-icon">👵</div><div class="node-title">어르신</div><p class="node-desc">생활 속 안전한 움직임</p></div>
+<div class="ecosystem-node"><div class="node-icon">🏃</div><div class="node-title">코치</div><p class="node-desc">전문적인 운동지도</p></div>
+<div class="ecosystem-node"><div class="node-icon">📱</div><div class="node-title">Careflow OS</div><p class="node-desc">의뢰·수업·기록 연결</p></div>
+<div class="ecosystem-node"><div class="node-icon">🏛️</div><div class="node-title">지자체·기관</div><p class="node-desc">돌봄서비스 연계</p></div>
+</div></div>
+<h3>코치의 네 가지 원칙</h3>
+<div class="principle-grid">
+<div class="principle-card"><div class="principle-badge">🛡️</div><div class="principle-content"><h4>안전</h4><p>상태와 위험부터 확인</p></div></div>
+<div class="principle-card"><div class="principle-badge">💬</div><div class="principle-content"><h4>존중</h4><p>참여 의사와 선택 존중</p></div></div>
+<div class="principle-card"><div class="principle-badge">📝</div><div class="principle-content"><h4>정확한 기록</h4><p>실제 수행한 수업만 기록</p></div></div>
+<div class="principle-card"><div class="principle-badge">🔄</div><div class="principle-content"><h4>신속한 공유</h4><p>사고·특이사항 즉시 보고</p></div></div>
+</div>
+<div class="boundary-grid">
+<div class="boundary-card do"><span class="boundary-tag">✓ 가능</span><h4>비의료 방문운동</h4><p>기능 수준에 맞는 근력·균형 운동과 안전한 생활운동 안내</p></div>
+<div class="boundary-card dont"><span class="boundary-tag">✕ 금지</span><h4>무자격 시술·사적 영업</h4><p>진단·처방·안마·수기치료·효과 보장 및 대상자 개인거래 유도</p></div>
+</div></div></section>
+<section class="content-section searchable" id="guide-g02" data-doc="guide" data-search-target="1" data-search-title="코치 커리어 성장">
+<div class="chapter-head"><span class="chapter-no">02</span><h2>코치 커리어 성장</h2></div>
+<div class="rich-text"><p class="chapter-lead">현장 경험을 쌓고 <strong>리더·교육강사·프로그램 전문가</strong>로 경력을 확장할 수 있습니다.</p>
+<div class="career-path">
+<div class="career-step"><small>STEP 01</small><h3>현장 코치</h3><p>운동지도·기능평가·기록 역량</p><span class="career-step-badge">현장 전문성</span></div>
+<div class="career-step"><small>STEP 02</small><h3>지역 코치 리더</h3><p>멘토링·사례 공유·품질 지원</p><span class="career-step-badge">현장 리더십</span></div>
+<div class="career-step"><small>STEP 03</small><h3>교육·프로그램 전문가</h3><p>KRIEE 출강·콘텐츠·프로그램 기획</p><span class="career-step-badge">교육 전문성</span></div>
+</div>
+<p class="small-tip">성장 방법: <strong>안전한 수업 → 정확한 기록 → 사례 학습</strong>. 스터디는 일반 프리랜서 기준 자율 참여입니다.</p>
+<p class="fine-print">각 단계는 별도 선발·계약에 따르며 자동 승격이나 최소 수입을 보장하지 않습니다.</p></div></section>
+<section class="content-section searchable" id="guide-g03" data-doc="guide" data-search-target="1" data-search-title="활동 전 준비">
+<div class="chapter-head"><span class="chapter-no">03</span><h2>활동 전 준비</h2></div>
+<div class="rich-text"><p class="chapter-lead">첫 의뢰를 수락하기 전에 <strong>다음 여섯 가지</strong>를 확인하세요.</p>
+<div class="toss-diagram-wrap"><div class="ecosystem-grid checklist-grid">
+<div class="ecosystem-node"><div class="node-icon">📄</div><div class="node-title">계약·정산</div><p class="node-desc">보수·운영규정 확인</p></div>
+<div class="ecosystem-node"><div class="node-icon">🪪</div><div class="node-title">자격·보험</div><p class="node-desc">사업별 필요서류 확인</p></div>
+<div class="ecosystem-node"><div class="node-icon">📱</div><div class="node-title">Careflow</div><p class="node-desc">로그인·알림 설정</p></div>
+<div class="ecosystem-node"><div class="node-icon">🗺️</div><div class="node-title">활동 가능 지역</div><p class="node-desc">이동 시간·일정 확인</p></div>
+<div class="ecosystem-node"><div class="node-icon">📑</div><div class="node-title">지역별 서식</div><p class="node-desc">회차·평가·증빙 확인</p></div>
+<div class="ecosystem-node"><div class="node-icon">🚨</div><div class="node-title">비상 연락</div><p class="node-desc">119·운영팀 연락 경로</p></div>
+</div></div>
+<p class="small-tip">코치는 의뢰를 <strong>자율적으로 수락</strong>하며, 수락한 건은 확정 조건대로 수행합니다.</p></div></section>
+<section class="content-section searchable" id="guide-g04" data-doc="guide" data-search-target="1" data-search-title="의뢰부터 첫 수업까지">
+<div class="chapter-head"><span class="chapter-no">04</span><h2>의뢰부터 첫 수업까지</h2></div>
+<div class="rich-text"><div class="stepper-flow">
+<div class="step-item"><div class="step-badge">1</div><div class="step-body"><div class="step-title">의뢰 확인</div><p class="step-desc">지역·시간·회차·보수 확인</p></div></div>
+<div class="step-item"><div class="step-badge">2</div><div class="step-body"><div class="step-title">매칭 확정</div><p class="step-desc">수락 후 최종 배정 확인</p></div></div>
+<div class="step-item"><div class="step-badge">3</div><div class="step-body"><div class="step-title">첫 연락</div><p class="step-desc">참여 의사·방문 시간 협의</p></div></div>
+<div class="step-item"><div class="step-badge">4</div><div class="step-body"><div class="step-title">방문 준비</div><p class="step-desc">서식·소도구·위험 요소 점검</p></div></div>
+<div class="step-item"><div class="step-badge">5</div><div class="step-body"><div class="step-title">운동지도</div><p class="step-desc">당일 상태에 맞춰 안전하게</p></div></div>
+<div class="step-item"><div class="step-badge">6</div><div class="step-body"><div class="step-title">일지 제출</div><p class="step-desc">실제 수행한 내용만 기록</p></div></div>
+<div class="step-item"><div class="step-badge">7</div><div class="step-body"><div class="step-title">다음 일정</div><p class="step-desc">대상자와 재방문 협의</p></div></div>
+</div>
+<p class="small-tip"><strong>매칭 신청 ≠ 배정 확정.</strong> 확정 전 방문하지 않습니다.</p></div></section>
+<section class="content-section searchable" id="guide-g05" data-doc="guide" data-search-target="1" data-search-title="첫 연락과 일정 조율">
+<div class="chapter-head"><span class="chapter-no">05</span><h2>첫 연락과 일정 조율</h2></div>
+<div class="rich-text"><div class="phone-simulator"><div class="phone-screen-header"><div class="phone-caller-info"><div class="phone-caller-avatar">📞</div><div class="phone-caller-text"><b>첫 통화 예시</b><span>짧고 정확하게</span></div></div></div>
+<div class="chat-bubbles">
+<div class="chat-bubble coach">“안녕하세요. ○○구 방문운동 노리케어 코치 ○○○입니다. 참여와 방문 일정을 확인해도 될까요?”</div>
+<div class="chat-bubble elder">“네, 목요일 2시가 좋아요.”</div>
+<div class="chat-bubble coach">“목요일 2시로 확인하겠습니다. 방문 시 주의할 점이 있을까요?”</div>
+</div></div>
+<ul class="compact-list"><li><strong>참여 의사·방문 시간</strong>을 먼저 확인합니다.</li>
+<li>비용·회차는 <strong>해당 지역 확정 기준</strong>만 안내합니다.</li>
+<li>거절·연락두절은 기록해 운영팀에 공유하고 <strong>임의 방문은 하지 않습니다.</strong></li></ul></div></section>
+<section class="content-section searchable" id="guide-g06" data-doc="guide" data-search-target="1" data-search-title="첫 방문과 수업">
+<div class="chapter-head"><span class="chapter-no">06</span><h2>첫 방문과 수업</h2></div>
+<div class="rich-text"><div class="toss-diagram-wrap"><div class="diagram-title">첫 수업의 네 단계</div><div class="ecosystem-grid">
+<div class="ecosystem-node"><div class="node-icon">👋</div><div class="node-title">인사·동의</div><p class="node-desc">목적·컨디션 확인</p></div>
+<div class="ecosystem-node"><div class="node-icon">🩺</div><div class="node-title">움직임 확인</div><p class="node-desc">보행·균형·위험 관찰</p></div>
+<div class="ecosystem-node"><div class="node-icon">💪</div><div class="node-title">맞춤 운동</div><p class="node-desc">안전한 근력·균형 지도</p></div>
+<div class="ecosystem-node"><div class="node-icon">🗓️</div><div class="node-title">마무리</div><p class="node-desc">피로 확인·다음 일정</p></div>
+</div></div>
+<ul class="compact-list"><li>도착 전 <strong>평가지·서식·소도구</strong>와 안전한 공간 확인</li>
+<li>통증·어지럼·위험 징후에는 <strong>즉시 중단</strong></li>
+<li>진단·처방·무자격 수기시술·동의 없는 접촉 <strong>금지</strong></li></ul></div></section>
+<section class="content-section searchable" id="guide-g07" data-doc="guide" data-search-target="1" data-search-title="Careflow 일지·정산">
+<div class="chapter-head"><span class="chapter-no">07</span><h2>Careflow 일지·정산</h2></div>
+<div class="rich-text"><p class="chapter-lead">일지는 <strong>대상자 진술 → 실제 수행 → 관찰</strong> 순서로 사실만 기록합니다.</p>
+<div class="log-mockup"><div class="mockup-header"><span class="mockup-badge">수업일지 예시</span><span class="log-valid">● 실제 완료</span></div>
+<div class="mockup-field"><span class="mockup-label">수업 전 · 진술</span><div class="mockup-box">“어깨를 올릴 때 불편해요.”</div></div>
+<div class="mockup-field"><span class="mockup-label">실제 수행</span><div class="mockup-box">의자에서 상지 가동범위 운동과 밴드 운동 각 10회.</div></div>
+<div class="mockup-field"><span class="mockup-label">수업 후 · 반응</span><div class="mockup-box">움직임이 편해졌다고 말함. 어지럼 없음.</div></div></div>
+<ul class="compact-list"><li>수업은 <strong>실제 수행 시간·내용</strong>으로 기록하고 정해진 기한 내 제출</li>
+<li><strong>거절·방문 시도·노쇼·수업 완료</strong>는 별도 상태로 구분</li>
+<li>사진·서명은 <strong>적법한 근거와 승인된 서식</strong>이 있는 경우만 수집</li>
+<li>보수·취소 보상은 <strong>서명 계약과 개별 의뢰조건</strong> 기준</li></ul></div></section>
+<section class="content-section searchable" id="guide-g08" data-doc="guide" data-search-target="1" data-search-title="사고·민원 대응">
+<div class="chapter-head"><span class="chapter-no">08</span><h2>사고·민원 대응</h2></div>
+<div class="rich-text"><div class="emergency-grid">
+<div class="emergency-card red"><div class="emergency-header"><span class="emergency-icon">🚨</span><span class="emergency-level">응급</span></div><h4>낙상·의식저하·호흡곤란</h4><p><strong>운동 중단 → 안전 확보 → 필요 시 119 → 운영팀 보고</strong></p></div>
+<div class="emergency-card orange"><div class="emergency-header"><span class="emergency-icon">⚠️</span><span class="emergency-level">주의</span></div><h4>급성 통증·어지럼</h4><p><strong>즉시 중단</strong>하고 상태 확인·기록. 필요 시 진료 안내</p></div>
+<div class="emergency-card blue"><div class="emergency-header"><span class="emergency-icon">📋</span><span class="emergency-level">행정</span></div><h4>거절·취소·민원</h4><p>허위 완료처리 금지. 사실을 기록해 운영팀에 공유</p></div>
+</div>
+<h3>기타 상황별 조치</h3>
+<div class="mini-action-list">
+<div><b>개인정보 유출 의심</b><p>전송 중지·증거 보존 → 개인정보 담당자 즉시 보고</p></div>
+<div><b>보호자 민원·환불 요구</b><p>회사 명의 배상 약속 없이 운영팀 이관</p></div>
+<div><b>대리수업 요청</b><p>사전 자격확인·승인 없이 대리수행 금지</p></div>
+</div></div></section>
+<section class="content-section searchable" id="guide-g09" data-doc="guide" data-search-target="1" data-search-title="지역별 기준 확인">
+<div class="chapter-head"><span class="chapter-no">09</span><h2>지역별 기준 확인</h2></div>
+<div class="rich-text"><p class="chapter-lead">지역마다 조건이 다릅니다. <strong>해당 Careflow 배정의 최신 승인 조건</strong>을 확인하세요.</p>
+<ul class="compact-list"><li><strong>제공 조건:</strong> 시간·회차·기간·연장</li>
+<li><strong>필수 서식:</strong> 평가·일지·서명·촬영</li>
+<li><strong>예외 처리:</strong> 취소·노쇼·거절</li>
+<li><strong>비용:</strong> 자부담 여부·문의 경로</li></ul>
+<p class="fine-print">구 운영카드의 일부 정보가 서로 달라, 검증 전 숫자는 이 페이지에 고정하지 않습니다.</p></div></section>
+<section class="content-section searchable" id="guide-g10" data-doc="guide" data-search-target="1" data-search-title="자주 묻는 질문">
+<div class="chapter-head"><span class="chapter-no">10</span><h2>자주 묻는 질문</h2></div>
+<div class="rich-text"><div class="faq-list">
+<details class="faq-item"><summary>의뢰를 거절할 수 있나요?</summary><p>네. <strong>수락은 자율</strong>이며, 확정한 의뢰는 약정대로 수행합니다.</p></details>
+<details class="faq-item"><summary>방문했는데 수업을 거절하면?</summary><p>거절 사실을 기록해 운영팀에 공유합니다. <strong>수업 완료 처리 금지.</strong></p></details>
+<details class="faq-item"><summary>사진 촬영을 거부한다면?</summary><p>촬영하지 않고 <strong>승인된 대체 증빙</strong>을 확인합니다.</p></details>
+<details class="faq-item"><summary>지역마다 강사비가 다른가요?</summary><p>가능합니다. <strong>개별 확정 의뢰의 보수</strong>를 확인하세요.</p></details>
+<details class="faq-item"><summary>개인 레슨을 요청받으면?</summary><p>대상자 직접거래·고객유인은 계약상 제한될 수 있습니다. 운영팀에 문의하세요.</p></details>
+<details class="faq-item"><summary>스터디·팀장 활동은 의무인가요?</summary><p>일반 코치의 스터디는 <strong>자율</strong>입니다. 다른 역할은 별도 계약입니다.</p></details>
+</div></div></section>
+<section class="content-section searchable" id="guide-g11" data-doc="guide" data-search-target="1" data-search-title="온보딩 완료 체크리스트">
+         <div class="chapter-head"><span class="chapter-no">11</span><h2>온보딩 완료 체크리스트</h2></div>
+         <div class="rich-text"><p>7개 항목을 확인해 주세요. <strong>계약 서명은 별도</strong>입니다.</p>
+<blockquote>
+<p><strong>문의:</strong> 현장·운동은 지역 팀장, 계약·정산은 운영팀, 응급상황은 119 우선.</p>
+</blockquote><div class="guide-checks" role="group" aria-label="온보딩 자기점검"><label class="guide-check"><input type="checkbox" aria-label="노리케어와 Careflow의 역할을 설명할 수 있다."><span class="cb-label"><p>노리케어와 Careflow의 역할을 설명할 수 있다.</p></span></label><label class="guide-check"><input type="checkbox" aria-label="코치·지역 리더·교육강사의 성장 경로를 이해한다."><span class="cb-label"><p>코치·지역 리더·교육강사의 성장 경로를 이해한다.</p></span></label><label class="guide-check"><input type="checkbox" aria-label="개별 의뢰를 확인하고 수락·일정을 협의할 수 있다."><span class="cb-label"><p>개별 의뢰를 확인하고 수락·일정을 협의할 수 있다.</p></span></label><label class="guide-check"><input type="checkbox" aria-label="첫 방문 전 안전·사업별 서식을 확인할 수 있다."><span class="cb-label"><p>첫 방문 전 안전·사업별 서식을 확인할 수 있다.</p></span></label><label class="guide-check"><input type="checkbox" aria-label="실제 수업과 미수행·노쇼·거절을 구분하여 기록한다."><span class="cb-label"><p>실제 수업과 미수행·노쇼·거절을 구분하여 기록한다.</p></span></label><label class="guide-check"><input type="checkbox" aria-label="낙상·통증·정보유출 시 우선 대응과 보고 경로를 안다."><span class="cb-label"><p>낙상·통증·정보유출 시 우선 대응과 보고 경로를 안다.</p></span></label><label class="guide-check"><input type="checkbox" aria-label="업무위탁계약서와 운영규정의 적용 관계를 이해한다."><span class="cb-label"><p>업무위탁계약서와 운영규정의 적용 관계를 이해한다.</p></span></label></div><div class="completion-card"><h3>온보딩 학습을 마쳤나요?</h3>
+            <p>7개 항목을 모두 체크하면 완료를 표시할 수 있습니다.</p>
+            <div class="rail-progress-row"><span class="section-overline">나의 체크리스트</span><strong id="check-progress" style="font-size:16px;color:var(--toss-blue);font-weight:850">0 / 7</strong></div>
+            <div class="completion-meter" aria-hidden="true"><span id="check-progress-bar"></span></div>
+            <button id="guide-read-button" disabled>온보딩 학습 완료 표시</button>
+            <p class="small-note">기기 내 학습 기록이며 계약 동의·전자서명이 아닙니다.</p></div></div></section>
+    <div class="source-note">리브라이블리 주식회사 · 노리케어 | 온보딩 실무 가이드북 v1.0<br>이 문서는 교육 안내용이며, 전자서명한 업무위탁계약의 법적 효력을 변경하지 않습니다.</div>
+   </div>
+  </article>
+  <article class="doc-panel" id="panel-rules" aria-label="프리랜서 업무위탁 운영규정" hidden>
+   <section class="hero rules-hero">
+    <span class="draft-flag">법무 검토용 초안 · 미시행</span>
+    <p class="hero-overline">NORICARE / INDEPENDENT PROFESSIONAL</p>
+    <h1>독립 전문가의 자율성,<br>수락한 업무에 대한 책임.</h1>
+    <p class="hero-desc">독립 전문가의 업무수행·정산·책임 기준을 확인하세요.</p>
+    <div class="hero-actions"><a class="button-primary" href="#rules-r01">규정 읽기 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></a><button type="button" class="button-secondary" data-open-overlay="search">조항 검색</button></div>
+    <div class="hero-meta"><span>2026년 업무위탁계약서 연계</span><span class="mini-dot"></span><span>29개 조항</span><span class="mini-dot"></span><span>v1.1 · 2026.11.05</span></div>
+   </section>
+   <div class="content-inner">
+    <div class="policy-note"><strong>중요: 본 내용은 아직 시행되지 않은 검토 초안입니다.</strong><br>서명된 2026년 외부전문가 업무위탁계약서 본문·별지, 개별 확정 의뢰조건, 관계 법령이 우선합니다. 이 화면의 ‘읽음 표시’만으로 새 계약에 동의하거나 기존 계약이 변경되지 않습니다.</div>
+    <div class="rule-summary-head"><div><p class="section-overline" style="color:var(--toss-blue);font-weight:800;font-size:12px;margin-bottom:4px">CONTRACT & OPERATION</p><h2>운영규정 전체 조항</h2></div><p>제목을 누르면 상세 내용 열기</p></div>
+    <div class="policy-stats"><span class="stat-chip"><strong>29</strong>개 본문 조항</span><span class="stat-chip"><strong>5</strong>개 장</span><span class="stat-chip"><strong>2</strong>개 별표</span></div>
+    <div class="rules-actions"><button class="utility-btn" data-expand-rules>모든 조항 펼치기</button><button class="utility-btn" data-collapse-rules>모두 접기</button><button class="utility-btn" data-print>인쇄</button></div>
+    <div class="rules-group" id="rules-ch1"><h2>제1장 기본 관계와 독립성</h2>
+             <p>조항을 눌러 상세 내용 보기</p></div>
+<details class="rule-card searchable" id="rules-r01" data-doc="rules" data-search-target="1" data-search-title="제1조(목적 및 적용대상)">
+        <summary><span class="rule-index">제1조</span><span class="rule-title">목적 및 적용대상</span><svg class="rule-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></summary>
+        <div class="rule-body rich-text"><ol>
+<li>이 규정은 리브라이블리 주식회사(이하 <strong>회사</strong>)가 구청·공공기관·복지관·재단 등 발주기관과 직접 체결한 원계약의 이행을 위해, 독립된 운동지도자·건강관리 전문가 등(이하 <strong>코치</strong>)에게 개별 위탁하는 비의료 서비스의 운영기준을 정한다.</li>
+<li>규정의 목적은 원계약 이행과 공공재원의 적법한 청구, 대상자 안전, 개인정보·비밀정보 및 회사 영업자산 보호, 정산 및 책임의 명확화에 있다.</li>
+<li>코치는 회사와 별도로 계약한 개인 전문인력으로서 사업자등록 유무와 무관하게 실제 계약관계 및 세법상 요건에 따라 지위와 지급·세무를 판단한다.</li>
+</ol></div></details>
+<details class="rule-card searchable" id="rules-r02" data-doc="rules" data-search-target="1" data-search-title="제2조(계약문서의 우선순위와 권리 보전)">
+        <summary><span class="rule-index">제2조</span><span class="rule-title">계약문서의 우선순위와 권리 보전</span><svg class="rule-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></summary>
+        <div class="rule-body rich-text"><ol>
+<li>관계 법령의 강행규정 및 발주기관에 대한 원계약상 의무를 준수한다. 회사·코치 사이의 계약문서 우선순위는 <strong>① 개별 업무위탁계약 본문 ② 별지·별도 서명 특약 ③ 확정된 개별 배정 조건 ④ 적법하게 편입된 본 운영규정</strong>의 순으로 한다(2026년 계약서 제24조 제6항 기준).</li>
+<li>수업 방법을 설명하는 온보딩 가이드북은 교육자료이며 별도의 계약상 위약벌·감액을 독자적으로 창설하지 않는다.</li>
+<li>본 규정의 어느 조항도 기존 서명 계약에 따른 회사의 검수권, 환수청구권, 손해배상청구권, 구상권, 계약해지권 또는 계약상 위약금·특약을 포기·감액하는 취지로 해석하지 않는다. 단, 개별 조항의 효력은 관계 법령 및 사법 판단에 따른다.</li>
+<li>변경된 규정은 정해진 방식으로 설명·통지하고, 보수·손해배상·직접거래 제한 등 중대한 불리한 변경은 법령과 계약에 따라 별도 동의를 확보한다.</li>
+</ol></div></details>
+<details class="rule-card searchable" id="rules-r03" data-doc="rules" data-search-target="1" data-search-title="제3조(독립된 프리랜서 전문가)">
+        <summary><span class="rule-index">제3조</span><span class="rule-title">독립된 프리랜서 전문가</span><svg class="rule-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></summary>
+        <div class="rule-body rich-text"><ol>
+<li>당사자는 기본적으로 고용관계가 아니라 독립적인 <strong>개별 업무위탁 관계</strong>를 예정한다. 코치는 개별 의뢰의 수락·거절을 스스로 결정하며, 회사는 최소 배정량·매출·소득·독점적 거래관계를 보장하지 않는다.</li>
+<li>코치는 이미 수락한 의뢰의 일정·서비스 품질 및 납품자료 기준을 준수하되, 대상자 안전 및 발주기관 필수 요건의 범위 내에서 구체적 운동 동작, 순서, 시간 배분, 방법을 전문적으로 판단한다.</li>
+<li>코치는 정해진 출퇴근·상시 대기·전속성을 원칙적으로 부담하지 않으며, 이해상충·고객정보 보호·수락 의뢰의 이행을 침해하지 않는 범위에서 다른 기관·고객을 위해 활동할 수 있다.</li>
+<li>코치의 장비·소모품·교통·통신 등 통상 비용은 별도 약정이 없는 한 코치가 부담한다. 대가는 근무시간이 아닌 <strong>건별·회차별 검수 완료 결과</strong>를 기준으로 산정한다. 세무는 실제 과세유형에 따라 처리하며, 사업소득 원천징수 3.3%가 적용되는 경우 관련 법령에 따라 원천징수한다.</li>
+<li>정기 인사평가·일상적 업무명령·출퇴근 통제·일반적인 의무 스터디 참가를 통해 종속적 근로관계로 운영하지 않는다. 안전·개인정보·발주기관 필수 교육은 해당 의뢰의 적격성 확인 절차로 관리한다.</li>
+<li><strong>프리랜서라고 명시했거나 관련 확인서에 서명했다는 이유만으로 법령상 발생하는 근로자·노무제공자의 권리가 배제되는 것은 아니다.</strong> 실제 계약 이행과 적용 법령을 우선한다.</li>
+</ol></div></details>
+<details class="rule-card searchable" id="rules-r04" data-doc="rules" data-search-target="1" data-search-title="제4조(전문자격·진술 및 확인)">
+        <summary><span class="rule-index">제4조</span><span class="rule-title">전문자격·진술 및 확인</span><svg class="rule-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></summary>
+        <div class="rule-body rich-text"><ol>
+<li>코치는 의뢰 수행에 필요한 자격·경력·교육이수·보험·신원 관련 제출자료가 사실임을 보증하며 변경을 지체 없이 알린다.</li>
+<li>회사는 관련 법령과 발주기관이 실제 요구하는 범위에서 자격·경력·결격사유·범죄경력 확인을 요청할 수 있다. 법적 조회 근거나 승인절차가 없는 범죄경력 조회를 임의 수행하지 않는다.</li>
+<li>자격 상실, 중요 허위 기재, 부적격, 필요한 보험 담보 미확인 시 회사는 해당 의뢰의 제안·배정·수행을 보류·중단할 수 있다.</li>
+<li>노인학대·성폭력 등 신고는 관련 법령상 신고의무자 해당 여부를 별도 확인하며, 의무자에 해당하지 않더라도 학대 의심 상황 발견 시 적법한 신고와 안전 확보를 우선한다.</li>
+</ol></div></details>
+<div class="rules-group" id="rules-ch2"><h2>제2장 개별 의뢰·대상자 안전·원계약 준수</h2>
+             <p>조항을 눌러 상세 내용 보기</p></div>
+<details class="rule-card searchable" id="rules-r05" data-doc="rules" data-search-target="1" data-search-title="제5조(개별 의뢰의 성립과 회사의 배정권)">
+        <summary><span class="rule-index">제5조</span><span class="rule-title">개별 의뢰의 성립과 회사의 배정권</span><svg class="rule-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></summary>
+        <div class="rule-body rich-text"><ol>
+<li>기본 업무위탁계약만으로 특정 수업의 수행 의무가 발생하지 않으며, <strong>회사의 건별 제안과 코치의 승낙·확정</strong>에 따라 개별 위탁이 성립한다.</li>
+<li>건별 제안에는 가능한 범위에서 사업·발주기관, 장소, 서비스 종류, 시간, 회차, 지급단가, 필수자격, 증빙·제출기한 및 유의사항을 제공한다.</li>
+<li>코치의 수락 전에는 의뢰를 거절할 수 있다. 수락 후에는 계약된 조건대로 수행하며 무단결강·조기종료·허위기록·무단 제3자 투입을 할 수 없다.</li>
+<li>원계약 변경, 대상자 사정, 예산, 자격 미달, 안전·민원, 사업 운영상 필요가 발생한 경우 회사는 원계약 범위 내에서 미착수 또는 장래의 배정을 조정·회수·중지하거나 적격 대체자를 배정할 수 있다. 이미 정상 완료한 수행분의 권리는 계약에 따라 처리한다.</li>
+</ol></div></details>
+<details class="rule-card searchable" id="rules-r06" data-doc="rules" data-search-target="1" data-search-title="제6조(전문적 재량과 업무 범위)">
+        <summary><span class="rule-index">제6조</span><span class="rule-title">전문적 재량과 업무 범위</span><svg class="rule-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></summary>
+        <div class="rule-body rich-text"><ol>
+<li>코치는 사업별 승인된 범위의 <strong>비의료 운동지도, 일반적 신체활동 지원, 승인된 기능평가 및 기록·보고</strong>를 수행한다.</li>
+<li>의학적 진단·치료·재활치료·수기치료·안마 등 법령상 자격 범위를 벗어나는 행위, 질환 완치를 보장하는 홍보, 의약품 처방, 동의 없는 신체 접촉은 금지한다.</li>
+<li>코치는 합리적 주의의무에 따라 당일 상태·위험요소를 확인하고 전문적 판단으로 운동을 조정·중단한다. 회사가 참고용으로 제공한 운동자료는 해당 개별 전문가의 주의의무를 대체하지 않는다.</li>
+<li>회사 승인 없는 제품 판매, 보충제 권유, 개인 유료수업 제안 또는 발주기관 승인 밖의 서비스 제공을 금지한다.</li>
+</ol></div></details>
+<details class="rule-card searchable" id="rules-r07" data-doc="rules" data-search-target="1" data-search-title="제7조(원계약 준수 및 외부 약정 금지)">
+        <summary><span class="rule-index">제7조</span><span class="rule-title">원계약 준수 및 외부 약정 금지</span><svg class="rule-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></summary>
+        <div class="rule-body rich-text"><ol>
+<li>코치는 수락한 의뢰에 한하여 회사가 사전에 전달한 원계약 필수 수행조건, 지역별 회차·시간·서식·평가기준·보고기한·안전 및 개인정보 지침을 준수한다.</li>
+<li>코치는 회사의 위임을 받은 범위를 넘어서 발주기관과 계약 변경, 단가·비용 제시, 결과 인정 약속, 환불·손해배상 합의, 행정자료 제출 등을 단독 확약하지 않는다. 대상자·보호자에게도 회사 명의의 확약을 하지 않는다.</li>
+<li>발주기관 기준이 변경되면 회사가 그 내용을 서면·시스템으로 공유하며, 코치의 동의가 필요한 개별 업무 본질·보수 조건은 변경 합의를 거친다.</li>
+<li>회사 또는 발주기관의 기준 전달·기록 검수는 원계약 이행을 위한 품질·결과 관리로 운영하며, 코치에 대한 포괄적 인사상 지휘·감독을 뜻하지 않는다.</li>
+</ol></div></details>
+<details class="rule-card searchable" id="rules-r08" data-doc="rules" data-search-target="1" data-search-title="제8조(대상자 동의 및 거절·연락두절)">
+        <summary><span class="rule-index">제8조</span><span class="rule-title">대상자 동의 및 거절·연락두절</span><svg class="rule-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></summary>
+        <div class="rule-body rich-text"><ol>
+<li>대상자의 참여 의사와 적법한 의뢰 여부를 확인한다. 명확히 참여를 거절하거나 방문을 원하지 않는 경우 임의로 재방문하거나 사실을 오인시키지 않는다.</li>
+<li>예약 확정, 방문 시도, 상담, 노쇼, 취소, 실제 수업 완료를 각각 구분해 기록한다. <strong>실제 계약상 제공 인정요건을 갖추지 않은 건을 정상 완료 회차로 허위 기록·청구할 수 없다.</strong></li>
+<li>별도 방문 확인료 또는 상담료 인정 여부는 발주기관의 공식 근거와 회사 승인에 따르며, 코치는 임의로 수업 1회를 차감하지 않는다.</li>
+</ol></div></details>
+<details class="rule-card searchable" id="rules-r09" data-doc="rules" data-search-target="1" data-search-title="제9조(일정 변경·무단 대리수행)">
+        <summary><span class="rule-index">제9조</span><span class="rule-title">일정 변경·무단 대리수행</span><svg class="rule-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></summary>
+        <div class="rule-body rich-text"><ol>
+<li>코치는 확정 일정의 변경이 필요하면 가능한 한 사전에 대상자와 회사 지정 채널로 통지하고, 서비스의 연속성을 위한 조정·인계에 협조한다.</li>
+<li>회사 및 필요한 경우 발주기관의 사전 승인을 받지 않은 제3자 대리수행·재위탁은 금지한다. 승인을 받아 대리수행한 경우에도 계약상 요구되는 범위에서 원수탁자의 관리·귀책 책임이 유지된다.</li>
+<li>대상자 사정으로 인한 취소나 위험 상황에 의한 중단은 코치의 귀책 여부를 구분하여 기록한다.</li>
+</ol></div></details>
+<details class="rule-card searchable" id="rules-r10" data-doc="rules" data-search-target="1" data-search-title="제10조(청렴·대외 신뢰)">
+        <summary><span class="rule-index">제10조</span><span class="rule-title">청렴·대외 신뢰</span><svg class="rule-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></summary>
+        <div class="rule-body rich-text"><ol>
+<li>코치는 원계약 수행과 관련하여 공무원·기관 관계자·대상자에게 부정청탁·리베이트·현금·사례금을 요청하거나 부당한 이익을 수수하지 않는다.</li>
+<li>허위확인·허위서명·대필·회차 부풀리기, 지자체 감사자료의 조작, 사적 계좌 수납, 권한 없는 언론 대응·임의 홍보를 금지한다.</li>
+<li>법정 신고의무와 공익신고자의 적법한 신고를 제한하지 않는다. 위법행위 신고를 이유로 불이익을 주지 않는다.</li>
+</ol></div></details>
+<div class="rules-group" id="rules-ch3"><h2>제3장 수행기록·정산 및 회사의 회복권</h2>
+             <p>조항을 눌러 상세 내용 보기</p></div>
+<details class="rule-card searchable" id="rules-r11" data-doc="rules" data-search-target="1" data-search-title="제11조(실적 증빙·수정이력)">
+        <summary><span class="rule-index">제11조</span><span class="rule-title">실적 증빙·수정이력</span><svg class="rule-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></summary>
+        <div class="rule-body rich-text"><ol>
+<li>코치는 실제 수행시간·내용·특이사항·상태를 Careflow 또는 회사 승인 시스템에 정확히 입력하고, 건별 계약 및 발주기관 기준의 기한까지 제출한다.</li>
+<li>사진·서명·평가 자료는 적법한 수집·촬영 근거와 해당 지역 서식을 확인한 경우에만 확보한다. 비동의 자택 촬영·사후 서명위조를 금지한다.</li>
+<li>회사는 수행 완료 여부, 허위·중복, 증빙의 완결성 등을 검수하고 보완을 요청할 수 있다. 코치는 계약상 필수 증빙을 누락한 경우 정해진 기간 내 정정·보완한다.</li>
+<li>감사·민원·사고·분쟁이 발생하면 관련 로그·원본 기록을 위법하게 삭제·변조·은닉하지 않고, 개인정보 보호와 법적 보존의무에 맞는 승인된 방식으로 보존·제출한다.</li>
+</ol></div></details>
+<details class="rule-card searchable" id="rules-r12" data-doc="rules" data-search-target="1" data-search-title="제12조(보수·검수 및 단가)">
+        <summary><span class="rule-index">제12조</span><span class="rule-title">보수·검수 및 단가</span><svg class="rule-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></summary>
+        <div class="rule-body rich-text"><ol>
+<li>지급대가는 개별 배정조건 또는 <strong>서명한 계약서 제14조·별지 2</strong>에 따라 실제 수행·검수 통과분을 기준으로 산정한다. 첨부 계약의 기본 지급조건은 원칙적으로 <strong>익월 15일 지급, 증빙 제출 후 10영업일 이내 검수</strong>이며, 실제 적용 계약의 조건을 확인한다.</li>
+<li>기본·검증단가 및 각 지자체 가산·변동조건은 건별 확정 내용을 따른다. 정상 확정된 과거 회차의 보수를 새 안내로 소급 감액하지 않는다.</li>
+<li>회사는 확인 가능한 증빙 제출을 요구하고, 미수행·허위기록·검수 미통과의 지급 적정성을 심사한다. 단순 신청·예약만으로 지급권이 확정되지 않는다.</li>
+</ol></div></details>
+<details class="rule-card searchable" id="rules-r13" data-doc="rules" data-search-target="1" data-search-title="제13조(정산 보류·감액·환수 및 이의)">
+        <summary><span class="rule-index">제13조</span><span class="rule-title">정산 보류·감액·환수 및 이의</span><svg class="rule-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></summary>
+        <div class="rule-body rich-text"><ol>
+<li>허위기록, 무단결강, 약정 미달, 중요 증빙 미비, 코치 귀책으로 인한 발주기관 회차 불인정 등이 발생하면 회사는 <strong>계약 제14조와 별지 2의 요건·절차</strong>에 따라 해당 수행분의 검수·지급·환수 여부를 판단한다.</li>
+<li>회사는 구체적인 쟁점 회차, 금액, 사유, 보완자료 및 심사기간을 특정하고, 정상 수행이 확인된 다른 회차의 보수를 일률적으로 보류하지 않는다.</li>
+<li>발주기관의 예산 삭감·지급보류가 <strong>코치 귀책 없이</strong> 발생했다는 이유만으로 코치의 적법한 지급청구권이 자동 소멸하거나 회사의 모든 지급 책임이 면제되는 것으로 보지 않는다. 회사는 원계약과 개별 위탁의 지급 조건을 구별하여 판단한다.</li>
+<li>과오지급·부당수령액·계약상 환수금은 증빙에 따라 반환 청구할 수 있다. 정산 검증에 대한 이의·처리 일정은 해당 서명 계약서에 따른다.</li>
+</ol></div></details>
+<details class="rule-card searchable" id="rules-r14" data-doc="rules" data-search-target="1" data-search-title="제14조(상계·채권 회수)">
+        <summary><span class="rule-index">제14조</span><span class="rule-title">상계·채권 회수</span><svg class="rule-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></summary>
+        <div class="rule-body rich-text"><ol>
+<li>회사는 코치가 부담하는 확정된 계약상 반환채무, 손해배상채무, 구상채무 등이 있을 경우 관계 법령상 요건과 계약의 <strong>상계 조항</strong>에 따라 상계 또는 별도 변제를 요구할 수 있다.</li>
+<li>각 채권의 발생원인·액수·입증자료와 상계 통지를 기록한다. 손해 발생 여부가 확정되지 않은 임의 추정금, 회사가 부담해야 할 비용의 포괄 전가, 근로관계에 적용되는 임금 전액지급 원칙 위반을 허용하지 않는다.</li>
+<li>상계가 어려운 경우 회사는 독립된 민사상 반환·손해배상·보전청구를 검토할 수 있으며, 법적 조치 전 증거를 보전한다.</li>
+</ol></div></details>
+<details class="rule-card searchable" id="rules-r15" data-doc="rules" data-search-target="1" data-search-title="제15조(코치의 손해배상·구상의무)">
+        <summary><span class="rule-index">제15조</span><span class="rule-title">코치의 손해배상·구상의무</span><svg class="rule-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></summary>
+        <div class="rule-body rich-text"><ol>
+<li>코치의 고의·과실 또는 계약상 의무 위반으로 인해 회사·발주기관·대상자 등에게 손해가 발생한 경우, 회사는 <strong>계약 제20조에 따른 실제 손해배상·구상</strong>을 청구할 수 있다.</li>
+<li>손해범위는 법령상 인정되는 직접 손해, 원계약 관련 감액·환수, 합리적인 대체인력 투입비, 사고 수습·조사·법적 방어비용 등에서 <strong>코치 귀책과 상당인과관계가 인정되는 부분</strong>으로 정한다. 과태료·행정벌·제재금은 법률상 전가·구상이 가능한 범위에서만 다룬다.</li>
+<li>회사의 대외 대응·선지급·임시 조치는 코치의 귀책을 자동 면제하거나 회사가 모든 책임을 최종 인수한다는 의미가 아니다. 회사는 증빙된 귀책 부분에 대해 법적 구상권을 보유한다.</li>
+<li>코치는 사고 경위, 문자·로그, 대상자 소통, 장비정보, 자격 등 방어에 필요한 자료를 적법하게 제공하고 조사에 협조한다.</li>
+<li>회사 자체의 과실, 회사의 위법 지시 또는 회사가 위험을 알면서 방치한 사정 등은 책임 비율 판단에서 제외하지 않는다.</li>
+</ol></div></details>
+<details class="rule-card searchable" id="rules-r16" data-doc="rules" data-search-target="1" data-search-title="제16조(책임의 분리·회사의 면책 범위)">
+        <summary><span class="rule-index">제16조</span><span class="rule-title">책임의 분리·회사의 면책 범위</span><svg class="rule-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></summary>
+        <div class="rule-body rich-text"><ol>
+<li>코치는 독립된 전문가로서 자신의 자격·경험에 따라 구체적인 수업내용·난이도·위험조절을 판단하며, 업무상 주의의무 위반·무단 수기시술·동의 없는 접촉·무단 제3자 투입·허위기록·사적 거래·개인정보 유출 등 <strong>코치 단독 귀책행위에 대한 1차적 책임</strong>을 부담한다.</li>
+<li>회사는 코치의 개인적 불법행위, 승인하지 않은 외부 활동, 업무와 무관한 개인 장비·교통·계약, 다른 사업자의 계약 이행에 관하여 <strong>법령상 회사 귀책이나 책임이 인정되지 않는 범위에서</strong> 책임을 부담하지 않는다.</li>
+<li>코치가 자신에게 인정되는 계약상·법률상 의무를 위반해 회사가 제3자에게 배상한 경우 회사는 법적 범위 내에서 코치에게 구상할 수 있다. 회사의 관리·정보보호·발주기관에 대한 책임, 고의·중과실, 법상 사용자책임 등 강행 책임을 이 규정만으로 면제하지 않는다.</li>
+<li>회사의 매뉴얼 제공, 시스템 접근, 지역별 품질점검, 발주기관 대응 또는 보험 운영 사실만으로 코치의 전문적 주의의무가 소멸하지 않는다.</li>
+<li>예측 불가한 불가항력 사유는 객관적 증빙 및 계약상 통지·손해확대방지 의무 이행 여부에 따라 책임을 판단한다.</li>
+</ol></div></details>
+<div class="rules-group" id="rules-ch4"><h2>제4장 안전·보험·개인정보·영업자산</h2>
+             <p>조항을 눌러 상세 내용 보기</p></div>
+<details class="rule-card searchable" id="rules-r17" data-doc="rules" data-search-target="1" data-search-title="제17조(응급 대응 및 위험 보고)">
+        <summary><span class="rule-index">제17조</span><span class="rule-title">응급 대응 및 위험 보고</span><svg class="rule-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></summary>
+        <div class="rule-body rich-text"><ol>
+<li>코치는 위험 신호 발생 시 즉시 운동을 중단하고 안전 확보 및 필요한 경우 119 신고를 우선한다. 보호자 연락과 회사 팀장·운영 매니저 통지를 이어서 진행한다.</li>
+<li>낙상·부상·의식변화·호흡곤란·심각한 통증·학대 의심·성희롱·폭행 등 사실과 조치를 기록하고 회사에 즉시 보고한다.</li>
+<li>코치는 의료·법적 책임을 회사 명의로 단독 승인하거나 금액을 합의하지 않는다. 응급조치·법정 신고는 회사의 사전 승인을 기다리지 않고 실시한다.</li>
+<li>조치 지연·은폐·허위보고에 대한 귀책이 인정되면 관련 계약상 책임을 부담한다.</li>
+</ol></div></details>
+<details class="rule-card searchable" id="rules-r18" data-doc="rules" data-search-target="1" data-search-title="제18조(보험·장비 및 비용)">
+        <summary><span class="rule-index">제18조</span><span class="rule-title">보험·장비 및 비용</span><svg class="rule-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></summary>
+        <div class="rule-body rich-text"><ol>
+<li>코치는 개별 계약 제9조가 정한 자격에 따른 보험가입·증빙 의무를 준수한다. 첨부 계약에는 <strong>전문직업인 배상책임보험 및 개인정보 배상책임특약</strong>의 담보한도·제출기한이 기재되어 있으므로 실제 가입 가능한 상품, 담보 범위와 피보험자에 코치·회사가 포함되는지를 점검한다.</li>
+<li>회사가 승인한 단체보험으로 대체하는 경우 적용 대상·담보범위·면책사항을 사전에 서면 확인한다. 보험 가입이 회사 또는 코치의 법적 책임을 자동 소멸시키지 않는다.</li>
+<li>코치는 개인 소유 장비의 안전·보안에 대해 계약상 관리 의무를 지며, 회사 제공 자산을 합리적으로 관리·반환한다.</li>
+<li>법정 산재·고용보험 등은 각 코치의 실제 업무 및 법정 적용 직종 여부를 개별 확인하여 법령이 정한 의무를 이행한다. 과거 법 조항 번호나 일률적 ‘적용제외 동의’로 보험 의무를 면제하지 않는다.</li>
+</ol></div></details>
+<details class="rule-card searchable" id="rules-r19" data-doc="rules" data-search-target="1" data-search-title="제19조(개인정보·민감정보 및 수탁자 지위)">
+        <summary><span class="rule-index">제19조</span><span class="rule-title">개인정보·민감정보 및 수탁자 지위</span><svg class="rule-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></summary>
+        <div class="rule-body rich-text"><ol>
+<li>코치는 개인정보 보호법과 계약 제11조·별지 3을 준수하고, 적법하게 위탁받은 업무 목적·최소한의 접근권한 내에서만 대상자 개인정보와 건강 관련 민감정보를 처리한다.</li>
+<li>승인되지 않은 주소록·엑셀·개인 메신저·개인 클라우드·사적 사진첩에 정보를 보관·전송하지 않으며, 회사의 사전 승인 없이 재위탁하지 않는다.</li>
+<li>분실·오발송·무단열람·유출 의심 시 추가 확산을 즉시 중단하고 사실을 신속하게 회사 개인정보 담당자에게 알린다. 계약상 최종 통지기한(첨부 계약은 늦어도 24시간 이내)을 반드시 준수한다.</li>
+<li>회사는 법률상 업무위탁에 필요한 문서화, 접근권한 통제, 감독, 보안점검, 처리 종료 후 적법한 반환·삭제 확인을 실시한다. 코치는 승인된 점검 범위에서 협조한다.</li>
+<li>코치 귀책으로 개인정보 사고가 발생해 회사에 법적 손해가 발생한 경우 계약상 손해배상·구상권을 적용하되, 법률상 허용되지 않는 과징금 등의 자동 전가나 회사의 감독의무 면제는 하지 않는다.</li>
+</ol></div></details>
+<details class="rule-card searchable" id="rules-r20" data-doc="rules" data-search-target="1" data-search-title="제20조(비밀유지·자료 회수·대외 발언)">
+        <summary><span class="rule-index">제20조</span><span class="rule-title">비밀유지·자료 회수·대외 발언</span><svg class="rule-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></summary>
+        <div class="rule-body rich-text"><ol>
+<li>코치는 계약기간과 종료 후에도 비공개 원계약, 가격·단가 정책, 발주기관·대상자 연락처, Careflow 데이터 및 기술정보, 내부 매뉴얼, 영업전략·프로그램·평가자료를 업무 목적 밖에 사용·공개하지 않는다.</li>
+<li>회사가 관리하는 비밀정보의 특정, 접근등급, 비밀 표시, 공유기록을 남긴다. 적법한 신고·수사기관 제출과 법령상 필요한 공개는 예외로 한다.</li>
+<li>배정 종료·계약 종료·권한 중지 시 회사 계정 접근을 회수하고 보유 자료의 반납·삭제 증빙을 확보한다. 단, 소송·감사 등 법적 보존의무에 해당하는 자료는 보호된 방식으로 보존한다.</li>
+<li>코치는 권한 없이 회사 또는 발주기관을 대리하는 듯한 SNS 게시, 언론 인터뷰, 개인정보가 담긴 포트폴리오·교육자료 공개를 하지 않는다.</li>
+</ol></div></details>
+<details class="rule-card searchable" id="rules-r21" data-doc="rules" data-search-target="1" data-search-title="제21조(업무 산출물·지식재산·초상권)">
+        <summary><span class="rule-index">제21조</span><span class="rule-title">업무 산출물·지식재산·초상권</span><svg class="rule-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></summary>
+        <div class="rule-body rich-text"><ol>
+<li>개별 위탁 수행으로 제출한 방문일지·평가표·운동기록·결과보고와 관련한 권리 귀속 및 회사 이용권은 서명 계약 제13조에 따른다.</li>
+<li>회사가 코치 고유의 기존 자료를 계약 체결 전부터 보유했거나 독자적으로 제작한 권리를 일방 취득하는 것으로 해석하지 않으며, 업무상 제작물 중 권리 이전이 필요한 항목·범위·대가는 개별 계약 또는 특약을 통해 명확하게 한다.</li>
+<li>대상자·코치의 얼굴·프로필·음성·민감정보의 대외 활용은 저작권과 별도로 적법한 개인정보·초상권 처리 근거를 확보한다.</li>
+<li>회사 로고·브랜드·시스템·매뉴얼의 무단 복제·배포·외부 영업 목적 사용은 금지하며, 침해가 확인되면 중단·자료회수·손해배상을 청구할 수 있다.</li>
+</ol></div></details>
+<details class="rule-card searchable" id="rules-r22" data-doc="rules" data-search-target="1" data-search-title="제22조(직접거래·고객유인·우회거래 금지)">
+        <summary><span class="rule-index">제22조</span><span class="rule-title">직접거래·고객유인·우회거래 금지</span><svg class="rule-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></summary>
+        <div class="rule-body rich-text"><ol>
+<li>코치는 회사가 업무를 통해 비공개로 제공·소개한 <strong>구체적 대상자·보호자·발주기관과의 관계를 회사 계약을 우회할 목적으로 이용</strong>하여 사적 레슨, 제3자 명의 계약, 수업대금 사적 수취, 개인 SNS·연락처를 통한 적극적 유인·제안을 하지 않는다.</li>
+<li>적용 대상·지역·기간·계약 종료 후 의무 및 전직지원금은 코치가 서명한 계약 <strong>제15조 및 별지 4</strong>에 따른다. 첨부 계약은 거래기간에 따라 <strong>6개월·12개월·18개월</strong>의 차등기간과 별도 조건의 전직지원금 조항을 포함한다.</li>
+<li>본 규정은 회사의 기존 서명 계약상 직거래 금지·위약벌·손해배상청구권을 임의로 축소하지 않는다. 다만 제한의 유효성은 실제 보호할 영업이익, 특정 고객 범위, 기간, 대가, 해당 코치의 직업선택의 자유 등을 고려하여 판단한다.</li>
+<li>회사가 소개하지 않은 공개 고객에 대한 일반적인 독립 활동이나 동종업계 종사 전체를 일률적으로 금지하는 것으로 해석하지 않는다.</li>
+</ol></div></details>
+<details class="rule-card searchable" id="rules-r23" data-doc="rules" data-search-target="1" data-search-title="제23조(청렴·공공사업 리스크 및 법적 대응)">
+        <summary><span class="rule-index">제23조</span><span class="rule-title">청렴·공공사업 리스크 및 법적 대응</span><svg class="rule-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></summary>
+        <div class="rule-body rich-text"><ol>
+<li>부정청탁, 금품수수, 부정 증빙, 무자격 수행, 허위실적, 회계자료 조작 등 공공사업 수행 신뢰를 해치는 행위는 중대한 계약위반이다.</li>
+<li>회사는 관련 기록을 보전하고 발주기관 감사·수사·행정절차에 적법하게 대응하며, 코치는 자신과 관련된 사실확인과 증빙에 협조한다.</li>
+<li>코치 귀책과 상당인과관계가 입증된 손해에 대한 계약상 청구권을 행사한다. 기존 서명 계약의 청탁금지·위약금 조항은 본 규정만으로 변경하지 않으나, 별도의 적용·유효성 심사가 필요하다.</li>
+</ol></div></details>
+<div class="rules-group" id="rules-ch5"><h2>제5장 위반 조치·계약 종료·개정</h2>
+             <p>조항을 눌러 상세 내용 보기</p></div>
+<details class="rule-card searchable" id="rules-r24" data-doc="rules" data-search-target="1" data-search-title="제24조(실적 감사·모니터링)">
+        <summary><span class="rule-index">제24조</span><span class="rule-title">실적 감사·모니터링</span><svg class="rule-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></summary>
+        <div class="rule-body rich-text"><ol>
+<li>회사는 발주기관 원계약 이행, 정산 적정성, 안전·개인정보 보호를 위하여 관련 회차·증빙·시스템 로그를 점검하고 불일치 시 보완 또는 사실확인을 요청할 수 있다.</li>
+<li>점검 범위는 위탁성과·규정 준수 확인에 필요한 정보로 한정하고 코치의 일반 사생활·타 고객 업무를 무제한 열람하지 않는다.</li>
+<li>허위증빙, 고의적 조작, 자료 제출 거부로 원계약 이행이 불가능한 경우 계약상 배정 중단·종료권을 검토한다.</li>
+</ol></div></details>
+<details class="rule-card searchable" id="rules-r25" data-doc="rules" data-search-target="1" data-search-title="제25조(신규 배정 보류·중단 및 계약상 조치)">
+        <summary><span class="rule-index">제25조</span><span class="rule-title">신규 배정 보류·중단 및 계약상 조치</span><svg class="rule-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></summary>
+        <div class="rule-body rich-text"><ol>
+<li>회사는 자격 미달, 안전 위험, 중대한 개인정보 사고, 허위실적·무단대리수행 등 객관적인 원계약 위험이 발견되면 해당 건의 수행 또는 <strong>향후 신규 의뢰 제안</strong>을 임시 보류·중단할 수 있다.</li>
+<li>사실확인이 필요한 사안에는 관련 사유·근거·소명 기회를 제공하되, 대상자 보호 및 정보유출 방지가 긴급한 경우 즉시 접근 제한·배정 중단을 실시하고 추후 사실관계를 확인한다.</li>
+<li>단순 오입력·행정 오류에 대하여는 정정·재발방지 안내를 우선할 수 있고, 반복적·중대한 위반은 계약에 따라 중단·해지·법적 청구를 진행한다.</li>
+<li>이 조항의 조치는 업무위탁 계약에 따른 신규 의뢰·접근권 관리이며, 고용관계상 징계절차를 창설하려는 것이 아니다.</li>
+</ol></div></details>
+<details class="rule-card searchable" id="rules-r26" data-doc="rules" data-search-target="1" data-search-title="제26조(계약 해지·잔여 의뢰·자료 인계)">
+        <summary><span class="rule-index">제26조</span><span class="rule-title">계약 해지·잔여 의뢰·자료 인계</span><svg class="rule-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></summary>
+        <div class="rule-body rich-text"><ol>
+<li>계약기간, 자동 갱신의 성립조건, 해지 통지는 서명한 계약 제18조·제19조에 따른다. 회사는 원계약 종료, 예산 및 기관 사정, 자격·안전·위반 등 계약상 사유에 따라 개별 배정 중단·해지 여부를 판단한다.</li>
+<li>코치는 해지·업무 중단이 확정된 때 필요한 범위에서 진행 중 대상자 자료·일정·안전 유의사항을 적법하게 인계하고, 개인보관 정보는 반납·삭제한다.</li>
+<li>회사의 긴급 중단·계약해지 조치는 별도의 손해배상·구상·증거보전 청구권을 제한하지 않는다. 검수 완료된 정상 수행분의 정산은 계약과 법령에 따른다.</li>
+</ol></div></details>
+<details class="rule-card searchable" id="rules-r27" data-doc="rules" data-search-target="1" data-search-title="제27조(위약벌·예정손해배상 및 권리 행사)">
+        <summary><span class="rule-index">제27조</span><span class="rule-title">위약벌·예정손해배상 및 권리 행사</span><svg class="rule-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></summary>
+        <div class="rule-body rich-text"><ol>
+<li>기존 서명 계약 제21조·제7조의2·별지 4 등에는 직접거래, 개인정보 유출, 부정청탁, 발주기관 제재와 관련한 <strong>특별 위약벌 및 예정손해배상 조항</strong>이 존재한다. 본 규정은 해당 계약상 권리의 감액·면제·포기를 뜻하지 않는다.</li>
+<li>개별 사안에서 위약벌·손해배상을 청구할 때에는 해당 서명·개별 교섭 여부, 해당 조항의 법적 효력, 위반 사실, 계약상 요건, 중복배상 여부, 적용 법령을 검토하여 집행한다.</li>
+<li>위약금의 법적 성격(손해배상액 예정인지 위약벌인지), 과다·불공정 여부에 따라 집행 가능성이 달라질 수 있으므로, 고액·중첩 청구는 법률 검토를 거친다.</li>
+<li>계약상 금전청구권과 별도로 회사는 적법한 범위에서 자료 반환·삭제, 접근 차단, 침해중지, 가처분·손해배상·수사기관 신고 등 필요한 권리 구제를 검토할 수 있다.</li>
+</ol></div></details>
+<details class="rule-card searchable" id="rules-r28" data-doc="rules" data-search-target="1" data-search-title="제28조(개정·동의·효력)">
+        <summary><span class="rule-index">제28조</span><span class="rule-title">개정·동의·효력</span><svg class="rule-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></summary>
+        <div class="rule-body rich-text"><ol>
+<li>회사는 법령·발주기관 요구·서비스 변경 등을 이유로 규정을 개정할 수 있으며, 문서 버전·변경 요약·시행일·열람 기록을 보관한다.</li>
+<li>보수, 정산 상계, 위약금, 직거래 제한 기간, 계약 종료 등 코치에게 중대한 불이익이 되는 조건은 법령과 서명 계약에 따라 적법하게 고지·설명·동의받아 장래 적용한다.</li>
+<li>별도 서면 동의가 필요한 중요 변경을 단순히 코치가 업무를 계속했다는 사실만으로 일률적으로 동의한 것으로 처리하지 않는다.</li>
+<li>회사는 전자서명·동의시각·열람 버전·개별 배정 승낙 기록을 보관한다.</li>
+</ol></div></details>
+<details class="rule-card searchable" id="rules-r29" data-doc="rules" data-search-target="1" data-search-title="제29조(분쟁 및 권리존속)">
+        <summary><span class="rule-index">제29조</span><span class="rule-title">분쟁 및 권리존속</span><svg class="rule-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></summary>
+        <div class="rule-body rich-text"><ol>
+<li>정산·계약 해지·사고·고객정보 분쟁은 객관적인 원계약·계약서·증빙을 근거로 검토한다.</li>
+<li>비밀유지, 개인정보, 지식재산, 직접거래 제한, 손해배상·구상 등은 그 성질 및 서명 계약 제25조에서 정한 범위 내에서 종료 후에도 존속한다.</li>
+<li>관할 및 분쟁 해결 절차는 계약 제26조에 따르되, 관계 법령상 강행 관할규정을 우선한다.</li>
+</ol></div></details>
+<div class="rules-group" id="rules-ch6"><h2>별표 · 실무 증빙 및 시행 전 확인</h2>
+             <p>조항을 눌러 상세 내용 보기</p></div>
+<details class="rule-card searchable" id="rules-a01" data-doc="rules" data-search-target="1" data-search-title="별표 1(회사의 증빙 확보 기준)">
+        <summary><span class="rule-index">별표</span><span class="rule-title">별표 1(회사의 증빙 확보 기준)</span><svg class="rule-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></summary>
+        <div class="rule-body rich-text"><table>
+<thead>
+<tr>
+<th>상황</th>
+<th>권장 증빙</th>
+<th>확인 목적</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="상황">개별 의뢰 제안·수락</td>
+<td data-label="권장 증빙">건별 조건과 수락 로그</td>
+<td data-label="확인 목적">권리·의무 성립 시점 확인</td>
+</tr>
+<tr>
+<td data-label="상황">거절·미수행·노쇼</td>
+<td data-label="권장 증빙">연락시간, 방문 여부, 거절 사유, 공식 기준</td>
+<td data-label="확인 목적">수행 회차와 방문시도 구분</td>
+</tr>
+<tr>
+<td data-label="상황">정상 수행·정산</td>
+<td data-label="권장 증빙">실제 제공시간, 일지, 적법한 증빙, 정산표</td>
+<td data-label="확인 목적">검수 및 대금 지급</td>
+</tr>
+<tr>
+<td data-label="상황">허위기록 의심</td>
+<td data-label="권장 증빙">원본 데이터, 변경 이력, 관련 기록</td>
+<td data-label="확인 목적">감사 대응·사실 조사</td>
+</tr>
+<tr>
+<td data-label="상황">사고·민원</td>
+<td data-label="권장 증빙">119 여부, 보고 시각, 당사자 진술, 원본 자료</td>
+<td data-label="확인 목적">보험·책임·구상 판단</td>
+</tr>
+<tr>
+<td data-label="상황">개인정보 사고</td>
+<td data-label="권장 증빙">유출 경로, 계정·접속기록, 조치·삭제 내역</td>
+<td data-label="확인 목적">재발방지·법적 대응</td>
+</tr>
+<tr>
+<td data-label="상황">고객유인·직거래</td>
+<td data-label="권장 증빙">적법하게 확보한 제안·대금·연락 기록</td>
+<td data-label="확인 목적">위반 성립·손해 입증</td>
+</tr>
+<tr>
+<td data-label="상황">계약 종료</td>
+<td data-label="권장 증빙">접근권한 회수, 인계·반납·삭제 확인</td>
+<td data-label="확인 목적">대상자·영업정보 보호</td>
+</tr>
+</tbody>
+</table></div></details>
+<details class="rule-card searchable" id="rules-a02" data-doc="rules" data-search-target="1" data-search-title="별표 2(연계하여 확인할 계약문서)">
+        <summary><span class="rule-index">별표</span><span class="rule-title">별표 2(연계하여 확인할 계약문서)</span><svg class="rule-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg></summary>
+        <div class="rule-body rich-text"><ul>
+<li><strong>별지 1:</strong> 개별 배정 및 업무확인서</li>
+<li><strong>별지 2:</strong> 정산기준 및 상계동의</li>
+<li><strong>별지 3:</strong> 개인정보·민감정보 처리 및 비밀유지 특약</li>
+<li><strong>별지 4:</strong> 직접거래 금지 및 고객유인 금지 특약</li>
+<li><strong>별지 5:</strong> 독립사업자 확인서(법정 권리 포기가 아닌 사실관계 확인)</li>
+<li><strong>별지 6:</strong> 범죄경력 조회 및 법정서식 제출 확인서(적법한 대상에 한정)</li>
+</ul>
+<blockquote>
+<p><strong>시행 전 내부 승인사항:</strong> (1) 2026년 업무위탁계약 본문·별지와 충돌 검토 (2) 고액·중복 위약벌 및 전직지원금의 법률 검토 (3) 근로자성 관련 실제 배정·교육 운영 점검 (4) 직종별 산재·고용보험 적용 확인 (5) 발주기관별 정산·증빙 기준 승인 (6) 버전·전자서명·공지 체계 확정. 이 페이지를 게시하는 행위만으로 계약이 개정되거나 법적 동의가 성립하지 않습니다.</p>
+</blockquote></div></details>
+    <div class="completion-card"><h3>규정 열람 표시</h3><p>해당 버전을 확인했다는 개인 기기상의 읽음 상태만 표시합니다. <strong>계약서·특약 동의는 케어플로우의 별도 인증·전자서명 절차가 필요합니다.</strong></p><button id="rules-read-button">운영규정 읽음 표시 (서명 아님)</button><p class="small-note">개인정보나 대상자 데이터는 수집하지 않습니다. 서버 기록은 별도 개발 연동이 필요합니다.</p></div>
+    <div class="source-note">리브라이블리 주식회사 · 노리케어 | 업무위탁 운영규정 v1.1 (법무 검토 전)<br>개별 계약의 권리를 임의로 축소하지 않으며, 정식 시행 여부는 내부 승인 및 필요한 동의 후 별도 공지합니다.</div>
+   </div>
+  </article>
+ </main>
+ <aside class="right-rail" aria-label="읽기 도움말">
+  <p class="rail-title">READING COMPANION</p>
+  <div class="rail-card"><h3>지금 읽고 있어요</h3><p id="rail-doc-description">어르신의 일상을 지키는 첫 수업부터 성장까지</p>
+   <div class="rail-progress-row" style="margin-top:16px"><strong id="rail-progress-number">0%</strong><small>현재 문서 스크롤</small></div>
+   <div class="rail-progress-bar" aria-hidden="true"><span id="rail-progress-bar"></span></div>
+   <p id="rail-ack-status" style="font-size:11.5px;color:var(--toss-text-muted);margin-top:12px">아직 읽음 표시 없음</p></div>
+  <p class="rail-title">바로가기</p>
+  <div class="rail-card">
+   <a class="rail-shortcut" href="#guide-g04"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg> 개별 의뢰부터 첫 수업</a>
+   <a class="rail-shortcut" href="#guide-g08"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg> 사고·민원·정보유출 대응</a>
+   <a class="rail-shortcut" href="#rules-r03"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-3.6 7-10V5l-7-3-7 3v7c0 6.4 7 10 7 10zM9 12l2 2 4-4"/></svg> 프리랜서 독립성</a>
+   <a class="rail-shortcut" href="#rules-r16"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-3.6 7-10V5l-7-3-7 3v7c0 6.4 7 10 7 10zM9 12l2 2 4-4"/></svg> 책임 분리 · 면책</a>
+   <a class="rail-shortcut" href="#rules-r22"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-3.6 7-10V5l-7-3-7 3v7c0 6.4 7 10 7 10zM9 12l2 2 4-4"/></svg> 직접거래 금지</a>
+  </div>
+  <p class="rail-title">운영 기준</p><div class="rail-card"><h3>개별 확정 의뢰 우선</h3><p>회차·시간·단가·서식·취소 기준은 지자체와 개별 의뢰마다 다릅니다. 고정된 안내보다 Careflow의 확정 조건을 우선 확인하세요.</p></div>
+  <p class="rail-footer">NORICARE / LIVELIVELY<br>내부 업무용 · 버전 관리 필수</p>
+ </aside>
+</div>
+<nav class="mobile-bottom" aria-label="모바일 빠른 메뉴">
+ <button class="bottom-link is-active" data-select="guide" aria-selected="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.7c-3.5-2.3-6.1-2.2-9-1.5v12c3.4-.6 6.4-.5 9 1.5 2.5-2 5.5-2.1 9-1.5v-12c-3-.7-5.5-.8-9 1.5zM12 6.7v12"/></svg><span>실무가이드</span></button>
+ <button class="bottom-link" data-select="rules" aria-selected="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-3.6 7-10V5l-7-3-7 3v7c0 6.4 7 10 7 10zM9 12l2 2 4-4"/></svg><span>운영규정</span></button>
+ <button class="bottom-link" data-open-overlay="toc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg><span>목차</span></button>
+ <button class="bottom-link" data-open-overlay="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="7.1"/><path d="m16 16 5 5"/></svg><span>검색</span></button>
+</nav>
+<button class="mobile-float" data-scroll-top aria-label="맨 위로"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6"/></svg></button>
+<div class="overlay" id="drawer-overlay" role="dialog" aria-modal="true" aria-label="문서 목차" aria-hidden="true"><div class="overlay-backdrop" data-close-overlay></div>
+ <div class="drawer"><div class="drawer-head"><strong>전체 목차</strong><button class="icon-button" type="button" data-close-overlay aria-label="목차 닫기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"/></svg></button></div>
+ <div class="drawer-scroll">
+  <div class="drawer-font-control"><span>글자 크기</span><button data-font-adjust="-1" aria-label="글자 작게">가−</button><button data-font-adjust="1" aria-label="글자 크게">가＋</button></div>
+  <div class="document-switch" role="tablist" aria-label="문서 선택"><button class="switch-btn is-active" data-select="guide" role="tab" aria-selected="true"><span class="switch-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.7c-3.5-2.3-6.1-2.2-9-1.5v12c3.4-.6 6.4-.5 9 1.5 2.5-2 5.5-2.1 9-1.5v-12c-3-.7-5.5-.8-9 1.5zM12 6.7v12"/></svg></span><span><strong>온보딩 · 실무 가이드</strong></span></button><button class="switch-btn" data-select="rules" role="tab" aria-selected="false"><span class="switch-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-3.6 7-10V5l-7-3-7 3v7c0 6.4 7 10 7 10zM9 12l2 2 4-4"/></svg></span><span><strong>프리랜서 운영규정</strong></span></button></div>
+  <nav data-toc-pane="guide" aria-label="온보딩 전체 목차"><div class="toc-items"><a class="toc-link" href="#guide-g01"><span class="toc-num">01</span><span>리브라이블리와 노리케어</span></a><a class="toc-link" href="#guide-g02"><span class="toc-num">02</span><span>코치 커리어 성장</span></a><a class="toc-link" href="#guide-g03"><span class="toc-num">03</span><span>활동 전 준비</span></a><a class="toc-link" href="#guide-g04"><span class="toc-num">04</span><span>의뢰부터 첫 수업까지</span></a><a class="toc-link" href="#guide-g05"><span class="toc-num">05</span><span>첫 연락과 일정 조율</span></a><a class="toc-link" href="#guide-g06"><span class="toc-num">06</span><span>첫 방문과 수업</span></a><a class="toc-link" href="#guide-g07"><span class="toc-num">07</span><span>Careflow 일지·정산</span></a><a class="toc-link" href="#guide-g08"><span class="toc-num">08</span><span>사고·민원 대응</span></a><a class="toc-link" href="#guide-g09"><span class="toc-num">09</span><span>지역별 기준 확인</span></a><a class="toc-link" href="#guide-g10"><span class="toc-num">10</span><span>자주 묻는 질문</span></a><a class="toc-link" href="#guide-g11"><span class="toc-num">11</span><span>온보딩 완료 체크리스트</span></a></div></nav>
+  <nav data-toc-pane="rules" aria-label="운영규정 전체 목차" hidden><div class="toc-items"><p class="toc-group">제1장 기본 관계와 독립성</p><a class="toc-link" href="#rules-r01"><span class="toc-num">1</span><span>목적 및 적용대상</span></a><a class="toc-link" href="#rules-r02"><span class="toc-num">2</span><span>계약문서의 우선순위와 권리 보전</span></a><a class="toc-link" href="#rules-r03"><span class="toc-num">3</span><span>독립된 프리랜서 전문가</span></a><a class="toc-link" href="#rules-r04"><span class="toc-num">4</span><span>전문자격·진술 및 확인</span></a><p class="toc-group">제2장 개별 의뢰·대상자 안전·원계약 준수</p><a class="toc-link" href="#rules-r05"><span class="toc-num">5</span><span>개별 의뢰의 성립과 회사의 배정권</span></a><a class="toc-link" href="#rules-r06"><span class="toc-num">6</span><span>전문적 재량과 업무 범위</span></a><a class="toc-link" href="#rules-r07"><span class="toc-num">7</span><span>원계약 준수 및 외부 약정 금지</span></a><a class="toc-link" href="#rules-r08"><span class="toc-num">8</span><span>대상자 동의 및 거절·연락두절</span></a><a class="toc-link" href="#rules-r09"><span class="toc-num">9</span><span>일정 변경·무단 대리수행</span></a><a class="toc-link" href="#rules-r10"><span class="toc-num">10</span><span>청렴·대외 신뢰</span></a><p class="toc-group">제3장 수행기록·정산 및 회사의 회복권</p><a class="toc-link" href="#rules-r11"><span class="toc-num">11</span><span>실적 증빙·수정이력</span></a><a class="toc-link" href="#rules-r12"><span class="toc-num">12</span><span>보수·검수 및 단가</span></a><a class="toc-link" href="#rules-r13"><span class="toc-num">13</span><span>정산 보류·감액·환수 및 이의</span></a><a class="toc-link" href="#rules-r14"><span class="toc-num">14</span><span>상계·채권 회수</span></a><a class="toc-link" href="#rules-r15"><span class="toc-num">15</span><span>코치의 손해배상·구상의무</span></a><a class="toc-link" href="#rules-r16"><span class="toc-num">16</span><span>책임의 분리·회사의 면책 범위</span></a><p class="toc-group">제4장 안전·보험·개인정보·영업자산</p><a class="toc-link" href="#rules-r17"><span class="toc-num">17</span><span>응급 대응 및 위험 보고</span></a><a class="toc-link" href="#rules-r18"><span class="toc-num">18</span><span>보험·장비 및 비용</span></a><a class="toc-link" href="#rules-r19"><span class="toc-num">19</span><span>개인정보·민감정보 및 수탁자 지위</span></a><a class="toc-link" href="#rules-r20"><span class="toc-num">20</span><span>비밀유지·자료 회수·대외 발언</span></a><a class="toc-link" href="#rules-r21"><span class="toc-num">21</span><span>업무 산출물·지식재산·초상권</span></a><a class="toc-link" href="#rules-r22"><span class="toc-num">22</span><span>직접거래·고객유인·우회거래 금지</span></a><a class="toc-link" href="#rules-r23"><span class="toc-num">23</span><span>청렴·공공사업 리스크 및 법적 대응</span></a><p class="toc-group">제5장 위반 조치·계약 종료·개정</p><a class="toc-link" href="#rules-r24"><span class="toc-num">24</span><span>실적 감사·모니터링</span></a><a class="toc-link" href="#rules-r25"><span class="toc-num">25</span><span>신규 배정 보류·중단 및 계약상 조치</span></a><a class="toc-link" href="#rules-r26"><span class="toc-num">26</span><span>계약 해지·잔여 의뢰·자료 인계</span></a><a class="toc-link" href="#rules-r27"><span class="toc-num">27</span><span>위약벌·예정손해배상 및 권리 행사</span></a><a class="toc-link" href="#rules-r28"><span class="toc-num">28</span><span>개정·동의·효력</span></a><a class="toc-link" href="#rules-r29"><span class="toc-num">29</span><span>분쟁 및 권리존속</span></a><p class="toc-group">별표 · 실무 증빙 및 시행 전 확인</p><a class="toc-link" href="#rules-a01"><span class="toc-num">별표</span><span>별표 1(회사의 증빙 확보 기준)</span></a><a class="toc-link" href="#rules-a02"><span class="toc-num">별표</span><span>별표 2(연계하여 확인할 계약문서)</span></a></div></nav>
+ </div></div></div>
+<div class="overlay" id="search-overlay" role="dialog" aria-modal="true" aria-label="가이드 및 규정 검색" aria-hidden="true"><div class="overlay-backdrop" data-close-overlay></div>
+ <div class="search-modal"><div class="search-box"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="7.1"/><path d="m16 16 5 5"/></svg><input id="search-input" type="search" placeholder="실무 · 정산 · 직거래 · 개인정보 검색" aria-label="검색어 입력" autocomplete="off"><button class="icon-button" type="button" data-close-overlay aria-label="검색 닫기"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19"/></svg></button></div>
+ <div class="search-results" id="search-results" aria-live="polite"><div class="search-empty">두 문서의 내용을 검색할 수 있습니다.</div></div>
+ <div class="search-footer">Esc 닫기 · Ctrl/⌘ K 검색 · 결과 선택 시 해당 조항으로 이동</div></div></div>
+<div class="toast" id="toast" aria-live="polite"></div>
+<noscript><style>.doc-panel[hidden]{display:block!important}.toc-items{display:block}.mobile-bottom,.sidebar{display:none!important}.workspace{display:block}</style><p style="margin:10px">자바스크립트를 켜면 검색·목차·진행기록을 사용할 수 있습니다. 모든 문서는 아래에서 읽을 수 있습니다.</p></noscript>
+<script>(() => {
+  'use strict';
+  const ROOT = document.documentElement;
+  const BODY = document.body;
+  const VERSION = Object.freeze({guide:'1.0', rules:'1.1'});
+  const KEY = 'noricare:coach-portal:20261105:';
+  const memoryFallback = Object.create(null);
+  
+  const safeRead = (key, fallback = null) => { 
+    try { 
+      const s = localStorage.getItem(KEY + key); 
+      return s === null ? (key in memoryFallback ? memoryFallback[key] : fallback) : JSON.parse(s); 
+    } catch (_) { 
+      return key in memoryFallback ? memoryFallback[key] : fallback; 
+    } 
+  };
+  
+  const safeWrite = (key, value) => { 
+    memoryFallback[key] = value; 
+    try { 
+      localStorage.setItem(KEY + key, JSON.stringify(value)); 
+    } catch (_) {} 
+  };
+
+  const panels = {
+    guide: document.getElementById('panel-guide'),
+    rules: document.getElementById('panel-rules')
+  };
+  const tocPanes = Array.from(document.querySelectorAll('[data-toc-pane]'));
+  const selectionButtons = Array.from(document.querySelectorAll('[data-select]'));
+  const progressTop = document.getElementById('top-progress');
+  const progressNumber = document.getElementById('rail-progress-number');
+  const progressBar = document.getElementById('rail-progress-bar');
+  const drawer = document.getElementById('drawer-overlay');
+  const searchOverlay = document.getElementById('search-overlay');
+  const searchInput = document.getElementById('search-input');
+  const searchResults = document.getElementById('search-results');
+  const toastEl = document.getElementById('toast');
+  
+  let current = 'guide';
+  let scrollPending = false;
+  let overlayTrigger = null;
+  let currentOverlay = null;
+  let toastTimer;
+  let fontAdjust = Number(safeRead('font', 0)) || 0;
+  fontAdjust = Math.min(5, Math.max(0, fontAdjust));
+  ROOT.style.setProperty('--font-adjust', `${fontAdjust}px`);
+
+  const qs = (s, context = document) => context.querySelector(s);
+  const qsa = (s, context = document) => Array.from(context.querySelectorAll(s));
+
+  /* Toast Notification */
+  function notify(message) {
+    if (!toastEl) return;
+    toastEl.textContent = message;
+    toastEl.classList.add('is-visible');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toastEl.classList.remove('is-visible'), 2800);
+  }
+
+  /* Host Notification */
+  function notifyHost(doc) {
+    const payload = {
+      type: 'CAREFLOW_COACH_DOC_READ',
+      document: doc,
+      version: VERSION[doc],
+      completedAt: new Date().toISOString(),
+      mechanism: 'local-acknowledgement-not-electronic-signature'
+    };
+    window.dispatchEvent(new CustomEvent('careflow:coach-doc-read', {detail: payload}));
+    const config = window.CAREFLOW_GUIDE_CONFIG || {};
+    const queryOrigin = new URLSearchParams(location.search).get('parentOrigin');
+    const candidate = config.parentOrigin || queryOrigin;
+    if (window.parent !== window && typeof candidate === 'string') {
+      try {
+        const origin = new URL(candidate).origin;
+        if (origin !== 'null' && (origin.startsWith('https://') || origin.startsWith('http://localhost') || origin.startsWith('http://127.0.0.1'))) {
+          window.parent.postMessage(payload, origin);
+        }
+      } catch (_) {}
+    }
+  }
+
+  /* Overlays (Drawer, Search) */
+  function openOverlay(node, focusNode) {
+    closeOverlay(false);
+    overlayTrigger = document.activeElement;
+    currentOverlay = node;
+    node.classList.add('is-open');
+    node.setAttribute('aria-hidden', 'false');
+    BODY.style.overflow = 'hidden';
+    requestAnimationFrame(() => (focusNode || qs('[data-close-overlay]', node) || node).focus());
+  }
+
+  function closeOverlay(restore = true) {
+    if (!currentOverlay) return;
+    currentOverlay.classList.remove('is-open');
+    currentOverlay.setAttribute('aria-hidden', 'true');
+    BODY.style.overflow = '';
+    currentOverlay = null;
+    if (restore && overlayTrigger && overlayTrigger.isConnected) {
+      overlayTrigger.focus();
+    }
+    overlayTrigger = null;
+  }
+
+  /* Reading Progress */
+  function updateProgress() {
+    const height = document.documentElement.scrollHeight - window.innerHeight;
+    const value = height > 0 ? Math.max(0, Math.min(100, Math.round(100 * window.scrollY / height))) : 100;
+    ROOT.style.setProperty('--reading-progress', value + '%');
+    if (progressTop) progressTop.setAttribute('aria-valuenow', String(value));
+    if (progressNumber) progressNumber.textContent = value + '%';
+    if (progressBar) progressBar.style.width = value + '%';
+  }
+
+  function scrollListener() {
+    if (scrollPending) return;
+    scrollPending = true;
+    requestAnimationFrame(() => {
+      updateProgress();
+      scrollPending = false;
+    });
+  }
+
+  /* Navigation & Active TOC */
+  function setActiveToc(id) {
+    qsa('.toc-link.is-current').forEach(el => {
+      el.classList.remove('is-current');
+      el.removeAttribute('aria-current');
+    });
+    qsa('.toc-link[href="#' + CSS.escape(id) + '"]').forEach(el => {
+      el.classList.add('is-current');
+      el.setAttribute('aria-current', 'location');
+    });
+  }
+
+  function setView(view, {updateHash = false, scrollTop = false} = {}) {
+    if (!panels[view]) view = 'guide';
+    current = view;
+    Object.entries(panels).forEach(([key, elem]) => {
+      if (elem) elem.hidden = (key !== view);
+    });
+    selectionButtons.forEach(button => {
+      const selected = button.dataset.select === view;
+      button.classList.toggle('is-active', selected);
+      button.setAttribute('aria-selected', selected ? 'true' : 'false');
+      button.setAttribute('aria-pressed', selected ? 'true' : 'false');
+    });
+    tocPanes.forEach(pane => {
+      pane.hidden = pane.dataset.tocPane !== view;
+    });
+    const railDesc = qs('#rail-doc-description');
+    if (railDesc) {
+      railDesc.textContent = view === 'guide'
+        ? '어르신의 일상을 지키는 첫 수업부터 성장까지'
+        : '프리랜서 위탁계약의 권리·의무와 수행·정산 기준';
+    }
+    updateAckUI(view);
+    if (scrollTop) window.scrollTo({top: 0, behavior: 'smooth'});
+    if (updateHash && location.hash.replace('#', '') !== view) {
+      history.replaceState(null, '', '#' + view);
+    }
+    updateProgress();
+  }
+
+  function updateAckUI(doc) {
+    const readBtn = qs('#' + doc + '-read-button');
+    const ack = safeRead(doc + '_read', null);
+    const railAck = qs('#rail-ack-status');
+    if (ack) {
+      const d = new Date(ack.time);
+      const str = `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')} 확인됨`;
+      if (readBtn) readBtn.textContent = '다시 읽음 표시하기 (완료됨)';
+      if (railAck) railAck.textContent = '✓ ' + str;
+    } else {
+      if (readBtn) {
+        readBtn.textContent = (doc === 'guide') ? '온보딩 학습 완료 표시' : '운영규정 읽음 표시 (서명 아님)';
+      }
+      if (railAck) railAck.textContent = '아직 읽음 표시 없음';
+    }
+  }
+
+  /* Confetti Animation (Toss Style Celebration) */
+  function fireConfetti() {
+    let canvas = document.getElementById('confetti-canvas');
+    if (!canvas) {
+      canvas = document.createElement('canvas');
+      canvas.id = 'confetti-canvas';
+      document.body.appendChild(canvas);
+    }
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const colors = ['#3182f6', '#00b269', '#ff8a00', '#f04452', '#6c5ce7', '#ffd43b'];
+    const particles = [];
+    for (let i = 0; i < 90; i++) {
+      particles.push({
+        x: canvas.width / 2,
+        y: canvas.height * 0.45,
+        w: Math.random() * 8 + 6,
+        h: Math.random() * 6 + 4,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        vx: (Math.random() - 0.5) * 18,
+        vy: (Math.random() - 0.7) * 20,
+        gravity: 0.45,
+        rotation: Math.random() * 360,
+        rotSpeed: (Math.random() - 0.5) * 12,
+        opacity: 1
+      });
+    }
+
+    let animationId;
+    function render() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      let alive = false;
+      particles.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += p.gravity;
+        p.rotation += p.rotSpeed;
+        p.opacity -= 0.012;
+        if (p.opacity > 0) {
+          alive = true;
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate((p.rotation * Math.PI) / 180);
+          ctx.globalAlpha = Math.max(0, p.opacity);
+          ctx.fillStyle = p.color;
+          ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+          ctx.restore();
+        }
+      });
+      if (alive) {
+        animationId = requestAnimationFrame(render);
+      } else {
+        cancelAnimationFrame(animationId);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+    }
+    render();
+  }
+
+  /* Guide Checklist Progress */
+  function updateChecklist() {
+    const checks = qsa('.guide-check input');
+    if (!checks.length) return;
+    const checked = checks.filter(c => c.checked).length;
+    const total = checks.length;
+    const countEl = qs('#check-progress');
+    const barEl = qs('#check-progress-bar');
+    const btn = qs('#guide-read-button');
+    if (countEl) countEl.textContent = `${checked} / ${total}`;
+    if (barEl) barEl.style.width = `${Math.round((checked / total) * 100)}%`;
+    if (btn) btn.disabled = (checked < total);
+
+    if (checked === total) {
+      fireConfetti();
+    }
+  }
+
+  /* Search Engine */
+  let searchIndex = null;
+  function buildSearchIndex() {
+    if (searchIndex) return searchIndex;
+    const items = [];
+    qsa('.searchable').forEach(el => {
+      const doc = el.dataset.doc;
+      const title = el.dataset.searchTitle || (qs('h2, .rule-title', el) || {}).textContent || '';
+      const body = el.textContent || '';
+      items.push({id: el.id, doc, title: title.trim(), text: body.replace(/\s+/g, ' ')});
+    });
+    searchIndex = items;
+    return searchIndex;
+  }
+
+  function handleSearch(q) {
+    if (!searchResults) return;
+    q = q.trim().toLowerCase();
+    if (!q) {
+      searchResults.innerHTML = '<div class="search-empty">두 문서의 내용을 검색할 수 있습니다.</div>';
+      return;
+    }
+    const index = buildSearchIndex();
+    const hits = [];
+    index.forEach(item => {
+      const ti = item.title.toLowerCase().indexOf(q);
+      const bi = item.text.toLowerCase().indexOf(q);
+      if (ti !== -1 || bi !== -1) {
+        let snippet = '';
+        if (bi !== -1) {
+          const start = Math.max(0, bi - 35);
+          const end = Math.min(item.text.length, bi + q.length + 55);
+          const safeChunk = item.text.slice(start, end).replace(/[&<>\"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[ch]));
+          const safePattern = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          snippet = (start > 0 ? '…' : '') + safeChunk.replace(new RegExp(safePattern, 'gi'), m => `<mark>${m}</mark>`) + (end < item.text.length ? '…' : '');
+        } else {
+          snippet = item.text.slice(0, 90).replace(/[&<>]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[ch])) + '…';
+        }
+        hits.push({item, snippet, score: (ti !== -1 ? 10 : 0) + (bi !== -1 ? 5 : 0)});
+      }
+    });
+    hits.sort((a, b) => b.score - a.score);
+    if (!hits.length) {
+      searchResults.innerHTML = '<div class="search-empty">검색 결과가 없습니다.</div>';
+      return;
+    }
+    searchResults.innerHTML = hits.slice(0, 15).map(({item, snippet}) => `
+      <button type="button" class="search-result" data-jump="${item.id}" data-doc="${item.doc}">
+        <span>${item.doc === 'guide' ? '실무가이드' : '운영규정'}</span>
+        <b>${item.title.replace(/[&<>]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[ch]))}</b>
+        <p>${snippet}</p>
+      </button>
+    `).join('');
+  }
+
+  /* Event Listeners Initialization */
+  document.addEventListener('DOMContentLoaded', () => {
+    // Check embed mode query param
+    if (new URLSearchParams(location.search).get('embed') === '1') {
+      BODY.classList.add('embed-mode');
+    }
+
+    // Scroll progress & listener
+    window.addEventListener('scroll', scrollListener, {passive: true});
+    updateProgress();
+
+    // Document switcher buttons
+    selectionButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetView = btn.dataset.select;
+        setView(targetView, {updateHash: true});
+      });
+    });
+
+    // Font adjust buttons
+    qsa('[data-font-adjust]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const delta = parseInt(btn.dataset.fontAdjust, 10);
+        fontAdjust = Math.min(5, Math.max(0, fontAdjust + delta));
+        safeWrite('font', fontAdjust);
+        ROOT.style.setProperty('--font-adjust', `${fontAdjust}px`);
+        notify(`글자 크기 조절: ${fontAdjust > 0 ? '+' + fontAdjust : '기본'}`);
+      });
+    });
+
+    // Print buttons
+    qsa('[data-print]').forEach(btn => {
+      btn.addEventListener('click', () => window.print());
+    });
+
+    // Overlay Open/Close
+    qsa('[data-open-overlay]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const type = btn.dataset.openOverlay;
+        if (type === 'search') {
+          openOverlay(searchOverlay, searchInput);
+          setTimeout(() => searchInput && searchInput.focus(), 80);
+        } else if (type === 'toc') {
+          openOverlay(drawer);
+        }
+      });
+    });
+    qsa('[data-close-overlay]').forEach(el => {
+      el.addEventListener('click', () => closeOverlay(true));
+    });
+
+    // Search input
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => handleSearch(e.target.value));
+    }
+    if (searchResults) {
+      searchResults.addEventListener('click', (e) => {
+        const btn = e.target.closest('.search-result');
+        if (!btn) return;
+        const id = btn.dataset.jump;
+        const doc = btn.dataset.doc;
+        closeOverlay(false);
+        setView(doc);
+        const target = document.getElementById(id);
+        if (target) {
+          if (target.tagName === 'DETAILS') target.open = true;
+          target.scrollIntoView({behavior: 'smooth', block: 'start'});
+          setActiveToc(id);
+          history.pushState(null, '', '#' + id);
+        }
+      });
+    }
+
+    // Global Key shortcuts
+    window.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        openOverlay(searchOverlay, searchInput);
+      } else if (e.key === 'Escape') {
+        closeOverlay(true);
+      }
+    });
+
+    // Rules expand / collapse buttons
+    const expandBtn = qs('[data-expand-rules]');
+    if (expandBtn) {
+      expandBtn.addEventListener('click', () => {
+        qsa('#panel-rules details.rule-card').forEach(d => { d.open = true; });
+        notify('모든 조항을 펼쳤습니다.');
+      });
+    }
+    const collapseBtn = qs('[data-collapse-rules]');
+    if (collapseBtn) {
+      collapseBtn.addEventListener('click', () => {
+        qsa('#panel-rules details.rule-card').forEach(d => { d.open = false; });
+        notify('모든 조항을 접었습니다.');
+      });
+    }
+
+    // Floating scroll to top button
+    const floatBtn = qs('[data-scroll-top]');
+    if (floatBtn) {
+      floatBtn.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
+    }
+
+    // Checklist interactive state
+    const savedChecks = safeRead('guide_checks', []);
+    qsa('.guide-check input').forEach((chk, idx) => {
+      if (savedChecks.includes(idx)) chk.checked = true;
+      chk.addEventListener('change', () => {
+        const currentChecked = [];
+        qsa('.guide-check input').forEach((c, i) => { if (c.checked) currentChecked.push(i); });
+        safeWrite('guide_checks', currentChecked);
+        updateChecklist();
+      });
+    });
+    updateChecklist();
+
+    // Read buttons
+    const guideReadBtn = qs('#guide-read-button');
+    if (guideReadBtn) {
+      guideReadBtn.addEventListener('click', () => {
+        safeWrite('guide_read', {time: Date.now(), version: VERSION.guide});
+        updateAckUI('guide');
+        notifyHost('guide');
+        fireConfetti();
+        notify('온보딩 실무가이드 학습 완료가 기기에 저장되었습니다.');
+      });
+    }
+
+    const rulesReadBtn = qs('#rules-read-button');
+    if (rulesReadBtn) {
+      rulesReadBtn.addEventListener('click', () => {
+        safeWrite('rules_read', {time: Date.now(), version: VERSION.rules});
+        updateAckUI('rules');
+        notifyHost('rules');
+        notify('운영규정(v1.1 검토본) 확인 상태가 기기에 저장되었습니다.');
+      });
+    }
+
+    // Hash change & initial route
+    function handleHashRoute() {
+      const hash = location.hash.replace('#', '');
+      if (!hash) {
+        setView('guide');
+        return;
+      }
+      if (hash === 'rules' || hash === 'guide') {
+        setView(hash);
+        return;
+      }
+      if (hash.startsWith('rules-')) {
+        setView('rules');
+        const target = document.getElementById(hash);
+        if (target) {
+          if (target.tagName === 'DETAILS') target.open = true;
+          setTimeout(() => target.scrollIntoView({behavior: 'smooth', block: 'start'}), 100);
+          setActiveToc(hash);
+        }
+      } else if (hash.startsWith('guide-')) {
+        setView('guide');
+        const target = document.getElementById(hash);
+        if (target) {
+          setTimeout(() => target.scrollIntoView({behavior: 'smooth', block: 'start'}), 100);
+          setActiveToc(hash);
+        }
+      }
+    }
+    window.addEventListener('hashchange', handleHashRoute);
+    handleHashRoute();
+  });
+})();
+</script>
+</body></html>
